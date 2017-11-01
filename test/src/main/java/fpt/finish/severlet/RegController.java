@@ -1,6 +1,7 @@
 package fpt.finish.severlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import fpt.finish.Dao.UserDao;
 import fpt.finish.bean.User_haui;
 import fpt.finish.until.Md5Lib;
+import fpt.finish.until.MyUtils;
 
 
 
@@ -32,6 +34,7 @@ public class RegController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html;charset=UTF-8");
 		req.setCharacterEncoding("utf-8");
+		   Connection conn = MyUtils.getStoredConnection(req);
 		String err = "";
 		if (req.getParameter("ma_user").trim().length() < 4 || req.getParameter("ma_user").trim().length() > 12) {
 			err += "Mã giảng viên từ 4-12 ký tự <br>";
@@ -72,7 +75,7 @@ public class RegController extends HttpServlet {
 			user_Haui.setSdt(req.getParameter("sdt"));
 			//user_Haui.setMa_role(1);
 			UserDao impl = new UserDao();
-			impl.insert_User(user_Haui);
+			impl.insert_User(user_Haui,conn);
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/page/ok.jsp");
 			dispatcher.forward(req, resp);
 			

@@ -9,36 +9,28 @@ import fpt.finish.bean.User_haui;
 import fpt.finish.connection.OracleConnUtils;
 
 public class UserDao  {
-	private Connection connection;
-	private OracleConnUtils connectDB;
-	private ResultSet resultSet;
-	private PreparedStatement preparedStatement;
+	
 
-	public UserDao() {
-		connectDB=new OracleConnUtils();
-	}
-
-
-	public void insert_User(User_haui user)
+	public void insert_User(User_haui user,Connection conn)
 	{
 		
 		String sql="INSERT INTO `user_haui`(`ma_user`, `username`, `password`, `tengv`, `email`, `sdt`,`ma_role`) VALUES (?,?,?,?,?,?,?)";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, user.getMa_user());
-			preparedStatement.setString(2, user.getUserName());
-			preparedStatement.setString(3, user.getPassword());
-			preparedStatement.setString(4, user.getTengv());
-			preparedStatement.setString(5, user.getEmail());
-			preparedStatement.setString(6, user.getSdt());
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, user.getMa_user());
+			pstm.setString(2, user.getUserName());
+			pstm.setString(3, user.getPassword());
+			pstm.setString(4, user.getTengv());
+			pstm.setString(5, user.getEmail());
+			pstm.setString(6, user.getSdt());
 			//preparedStatement.setInt(7, user.);
-			preparedStatement.executeUpdate();
+			pstm.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			try {
-				connection.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -47,18 +39,17 @@ public class UserDao  {
 		
 	}
 	
-	public boolean checkLogin(String username, String password){
+	public boolean checkLogin(String username, String password,Connection conn){
 		//connection=connectDB.getConnect();
 		int count=0;
 		//UserModel user=new UserModel();
 		String sql="SELECT * FROM `user_haui` WHERE username=? and password=?";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, username);
-			preparedStatement.setString(2, password);
-			resultSet=preparedStatement.executeQuery();
-			while(resultSet.next())
-			{count++;}
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, username);
+			pstm.setString(2, password);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {count++;}
 			if(count==1){
 				return true;
 			}
@@ -68,7 +59,7 @@ public class UserDao  {
 		}
 		finally{
 			try {
-				connection.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,6 +89,29 @@ public class UserDao  {
 		String ma_user=user.getMa_user();
 		return ma_user;
 		
+	}
+
+	public String check_tengv(String ma_user_haui, Connection conn) {
+		// TODO Auto-generated method stub
+		User_haui user=new User_haui();
+		String sql="SELECT tengv FROM user_haui WHERE ma_user=?";
+		
+		PreparedStatement pstm;
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, ma_user_haui);
+			ResultSet resultSet = pstm.executeQuery();
+			while(resultSet.next())
+			{
+				user.setTengv(resultSet.getString("tengv"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return user.getTengv();
 	}
 	}
 

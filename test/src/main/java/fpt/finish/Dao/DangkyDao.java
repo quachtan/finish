@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.xomtro.DemoWebService.Model.DangkyModel;
+
 
 import fpt.finish.bean.Dang_ky_haui;
 import fpt.finish.connection.OracleConnUtils;
@@ -20,19 +20,20 @@ public class DangkyDao {
 	}
 	// Check phòng đã đăng ký theo thứ
 
-	public String check_dangkyCN(int maphong,String thoigian,String ca)
+	public String check_dangkyCN(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+
+		
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==6)
 					{
 						trangthai="Đã đăng ký";
@@ -45,30 +46,22 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
 		}
-	public String check_dangkyT2(int maphong,String thoigian,String ca)
+	public String check_dangkyT2(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+	
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==0)
 					{
 						trangthai="Đã đăng ký";
@@ -81,30 +74,22 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
 		}
-	public String check_dangkyT3(int maphong,String thoigian, String ca)
+	public String check_dangkyT3(long maphong,String thoigian, String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==1)
 					{
 						trangthai="Đã đăng ký";
@@ -117,30 +102,22 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
 		}
-	public String check_dangkyT4(int maphong,String thoigian,String ca)
+	public String check_dangkyT4(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==2)
 					{
 						trangthai="Đã đăng ký";
@@ -153,30 +130,22 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
 		}
-	public String check_dangkyT5(int maphong,String thoigian,String ca)
+	public String check_dangkyT5(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==3)
 					{
 						trangthai="Đã đăng ký";
@@ -189,30 +158,22 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
 		}
-	public String check_dangkyT6(int maphong,String thoigian,String ca)
+	public String check_dangkyT6(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==4)
 					{
 						trangthai="Đã đăng ký";
@@ -225,30 +186,21 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
-		
 		return trangthai;
 		}
-	public String check_dangkyT7(int maphong,String thoigian,String ca)
+	public String check_dangkyT7(long maphong,String thoigian,String ca,Connection conn)
 	{
-		connection=connectDB.getConnect();
+		
 		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		String trangthai="";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, thoigian);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, thoigian);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 					if(resultSet.getInt("thu")==5)
 					{
 						trangthai="Đã đăng ký";
@@ -261,13 +213,6 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return trangthai;
@@ -311,40 +256,26 @@ public class DangkyDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
 		}
 	}
-	public DangkyModel thongtindangky(int maphong, String ca, String ngay){
-		connection=connectDB.getConnect();
-		DangkyModel ttdk=new DangkyModel();
+	public Dang_ky_haui thongtindangky(long maphong, String ca, String ngay,Connection conn){
+	
+		Dang_ky_haui ttdk=new Dang_ky_haui();
 		String sql="SELECT * FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setInt(1, maphong);
-			preparedStatement.setString(2, ngay);
-			preparedStatement.setString(3, ca);
-			resultSet=preparedStatement.executeQuery();
-				while(resultSet.next())
-				{
-					ttdk=new DangkyModel(resultSet.getInt("maphong"), resultSet.getString("ma_user_haui"), resultSet.getString("ca"), resultSet.getString("mamon"),resultSet.getString("malopdl"), resultSet.getDate("thoigian"));
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setLong(1, maphong);
+			pstm.setString(2, ngay);
+			pstm.setString(3, ca);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
+					ttdk=new Dang_ky_haui(resultSet.getInt("maphong"), resultSet.getString("ma_user_haui"), resultSet.getString("ca"), resultSet.getString("mamon"),resultSet.getString("malopdl"), resultSet.getDate("thoigian"));
 					
 				}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		return ttdk;

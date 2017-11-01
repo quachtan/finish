@@ -7,33 +7,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.xomtro.DemoWebService.Model.Monhocmodel;
-import com.xomtro.DemoWebService.Model.PhongmayModel;
-import com.xomtro.DemoWebService.Model.UserModel;
-import com.xomtro.DemoWebService.config.DBconnection;
-import com.xomtro.DemoWebService.service.MonhocService;
+import fpt.finish.bean.Monhocmodel;
 
-public class MonhocDao implements MonhocService{
-	private Connection connection;
-	private DBconnection connectDB;
-	private Statement statement;
-	private ResultSet resultSet;
-	private PreparedStatement preparedStatement;
-	public MonhocDao() {
-		connectDB=new DBconnection();
-	}
-	@Override
-	public String check_tenmon(String mamon){
-		connection=connectDB.getConnect();
+
+
+public class MonhocDao{
+
+	
+	public String check_tenmon(String mamon,Connection conn){
+	
 		
 		Monhocmodel monhoc=new Monhocmodel();
 		String sql="SELECT `tenmon` FROM `monhoc` WHERE `mamon`=?";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, mamon);
-			resultSet=preparedStatement.executeQuery();
-			while(resultSet.next())
-			{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, mamon);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 				monhoc.setTenmon(resultSet.getString("tenmon"));
 				
 			}
@@ -44,7 +34,7 @@ public class MonhocDao implements MonhocService{
 		}
 		finally{
 			try {
-				connection.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -54,16 +44,15 @@ public class MonhocDao implements MonhocService{
 		return tenmon;
 		
 	}
-	public String check_mamon(String tenmon){
-		connection=connectDB.getConnect();
+	public String check_mamon(String tenmon,Connection conn){
+		
 		Monhocmodel monhoc=new Monhocmodel();
 		String sql="SELECT `mamon` FROM `monhoc` WHERE `tenmon`=?";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, tenmon);
-			resultSet=preparedStatement.executeQuery();
-			while(resultSet.next())
-			{
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, tenmon);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 				monhoc.setMamon(resultSet.getString("mamon"));
 				
 			}
@@ -74,7 +63,7 @@ public class MonhocDao implements MonhocService{
 		}
 		finally{
 			try {
-				connection.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

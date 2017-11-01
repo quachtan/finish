@@ -6,27 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.xomtro.DemoWebService.Model.LopHocModel;
-import com.xomtro.DemoWebService.config.DBconnection;
+import fpt.finish.bean.LopHocModel;
+
+
 
 public class LopHocDao {
-	private Connection connection;
-	private DBconnection connectDB;
-	private Statement statement;
-	private ResultSet resultSet;
-	private PreparedStatement preparedStatement;
-	public LopHocDao() {
-	connectDB=new DBconnection();
-	}
-	public String check_lopOD(String malopdl){
-		connection=connectDB.getConnect();
+
+	public String check_lopOD(String malopdl,Connection conn){
+	
 		LopHocModel lophoc=new LopHocModel();
 		String sql="SELECT `tenlopondinh` FROM `lophoc` WHERE malopdl=?";
 		try {
-			preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, malopdl);
-			resultSet=preparedStatement.executeQuery();
-			while(resultSet.next()){
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, malopdl);
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
 				lophoc.setTenlopondinh(resultSet.getString("tenlopondinh"));
 			}
 		} catch (SQLException e) {
@@ -35,7 +29,7 @@ public class LopHocDao {
 		}
 		finally{
 			try {
-				connection.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

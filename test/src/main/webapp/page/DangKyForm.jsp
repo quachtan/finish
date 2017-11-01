@@ -1,3 +1,6 @@
+<%@page import="fpt.finish.until.MyUtils"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="fpt.finish.Dao.MonhocDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,9 +32,12 @@ for(int i=0;i<m;i++){
 <td>Môn học:</td>
 <td><select name="mamon"><%
 MonhocDao monhocDao=new MonhocDao();
+
+Connection conn = MyUtils.getStoredConnection(request);
+
 int n=Integer.parseInt(String.valueOf(request.getAttribute("somon")));
 for(int j=m+1;j<n;j++){
-	out.print("<option value='"+monhocDao.check_mamon(String.valueOf(request.getAttribute(String.valueOf(j))))+"'>"+request.getAttribute(String.valueOf(j))+"</option>");
+	out.print("<option value='"+monhocDao.check_mamon(String.valueOf(request.getAttribute(String.valueOf(j))),conn)+"'>"+request.getAttribute(String.valueOf(j))+"</option>");
 } 
 %></select>
 </td>

@@ -15,7 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fpt.finish.Dao.DangkyDao;
+import fpt.finish.Dao.LichdayDao;
+import fpt.finish.Dao.LopHocDao;
+import fpt.finish.Dao.MonhocDao;
 import fpt.finish.Dao.PhongmayDao;
+import fpt.finish.Dao.UserDao;
 import fpt.finish.bean.Phong_May_haui;
 import fpt.finish.until.AddDayLib;
 import fpt.finish.until.MyUtils;
@@ -170,7 +174,14 @@ public class DangKyPmController extends HttpServlet{
 		AddDayLib addDayLib=new AddDayLib();
 		DangkyDao dangkyDao=new DangkyDao();
 		PhongmayDao phongmayDao=new PhongmayDao();
-		ArrayList<Phong_May_haui> dspm= phongmayDao.findAll(conn);
+		UserDao userDao=new UserDao();
+		MonhocDao monhocDao=new MonhocDao();
+		LopHocDao lopHocDao=new LopHocDao();
+		LichdayDao lichdayDao=new LichdayDao();
+		ArrayList<Phong_May_haui> dspm;
+		try {
+			dspm = phongmayDao.findAll(conn);
+		
 		if(dspm!=null){
 			for (Phong_May_haui pm : dspm) {
 				// Ca sáng
@@ -178,89 +189,89 @@ public class DangKyPmController extends HttpServlet{
 					String strs = "<tr><td>" + pm.getMaphong() + "</td><td>Sáng</td>";
 					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayCN;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca="+ca+"&day="+dayCN+"&maphong="+pm.getMaphong();
 						strs+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT2;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT2+"&maphong="+pm.getMaphong();
 						strs+= "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT3;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT3+"&maphong="+pm.getMaphong();
 						strs += "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT4;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT4 +"&maphong="+pm.getMaphong();
 						strs+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT5;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT5 + "&maphong="+pm.getMaphong();
 						strs+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT6;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT6 +"&maphong="+pm.getMaphong();
 						strs+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT7(pm.getMaphong(), dayT7, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT7(pm.getMaphong(), dayT7, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT7;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strs+="'>Đổi phòng</a></td>";
 					} else {
@@ -275,91 +286,91 @@ public class DangKyPmController extends HttpServlet{
 				
 					 ca = "Chieu";
 					String strc = "<tr><td>" + pm.getMaphong() + "</td><td>Chiều</td>";
-					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayCN;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca="+ca+"&day="+dayCN+"&maphong="+pm.getMaphong();
 						strc+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT2;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT2+"&maphong="+pm.getMaphong();
 						strc+= "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT3;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT3+"&maphong="+pm.getMaphong();
 						strc += "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT4;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT4 +"&maphong="+pm.getMaphong();
 						strc+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT5;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT5 + "&maphong="+pm.getMaphong();
 						strc+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT6;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
 						strc += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT6 +"&maphong="+pm.getMaphong();
 						strc+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT7(pm.getMaphong(),dayT7, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT7(pm.getMaphong(),dayT7, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT7;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strc+="'>Đổi phòng</a></td>";
 					} else {
@@ -373,91 +384,91 @@ public class DangKyPmController extends HttpServlet{
 				
 					 ca = "Toi";
 					String strt = "<tr><td>" + pm.getMaphong() + "</td><td>Tối</td>";
-					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayCN;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca="+ca+"&day="+dayCN+"&maphong="+pm.getMaphong();
 						strt+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT2;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT2+"&maphong="+pm.getMaphong();
 						strt+= "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT3(pm.getMaphong(), dayT3, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT3;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT3+"&maphong="+pm.getMaphong();
 						strt += "'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT4;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT4 +"&maphong="+pm.getMaphong();
 						strt+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT5(pm.getMaphong(), dayT5, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT5;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT5 + "&maphong="+pm.getMaphong();
 						strt+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT6(pm.getMaphong(), dayT6, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT6;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
 						strt += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT6 +"&maphong="+pm.getMaphong();
 						strt+="'>Đăng ký</a></td>";
 					}
-					if (dangkyDao.check_dangkyT7(pm.getMaphong(), dayT7, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyT7(pm.getMaphong(), dayT7, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT7;
-						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
-						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
-						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
-						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl());
-						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMamon());
+						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl();
+						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(),conn);
+						strs+="<br>"+monhocDao.check_tenmon(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
+						strs+="<br>"+lopHocDao.check_lopOD(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(),conn);
+						strs+=";LT:"+lichdayDao.check_lichday(dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMa_user_haui(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMalopdl(), dangkyDao.thongtindangky(pm.getMaphong(), ca, day,conn).getMamon(),conn);
 						strs+="<br><a href='doiphong?ca="+ca+"&day="+day+"&maphong="+pm.getMaphong();
 						strt+="'>Đổi phòng</a></td>";
 					} else {
@@ -469,6 +480,10 @@ public class DangKyPmController extends HttpServlet{
 				}
 				req.setAttribute("sophong", dspm.size());
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/page/DangKyPhong.jsp");
 		dispatcher.forward(req, resp);
 		
