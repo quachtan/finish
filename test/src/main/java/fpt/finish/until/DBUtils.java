@@ -996,17 +996,7 @@ public class DBUtils {
 
 	public static void huyphong(Connection conn, String id) throws SQLException {
 		String sql = "delete from dangky " + "where id = ?";
-
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		/*
-		 * SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yy");
-		 * 
-		 * 
-		 * Date date; try { date = formatter.parse(thoigian); } catch
-		 * (ParseException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
 		pstm.setString(1, id);
 
 		pstm.executeUpdate();
