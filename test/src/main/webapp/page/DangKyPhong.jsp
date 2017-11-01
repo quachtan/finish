@@ -7,8 +7,6 @@
 </head>
 <body>
 <h1>Đăng ký phòng máy</h1>
-
-<P id='sophong'><%=request.getAttribute("sophong") %></P>
 <table border="1">
 <tr>
 <th>Phòng</th>
@@ -22,11 +20,15 @@
 <th>T7</th>
 </tr>
 <% String sophong=String.valueOf(request.getAttribute("sophong"));
-int m=Integer.parseInt(sophong);
-for(int i=1;i<=m;i++){
-	out.print(request.getAttribute(String.valueOf(i).concat("s")));
-	out.print(request.getAttribute(String.valueOf(i).concat("c")));
-	out.print(request.getAttribute(String.valueOf(i).concat("t")));
+try {
+	int m=Integer.parseInt(sophong);
+	for(int i=1;i<=m;i++){
+		out.print(request.getAttribute(String.valueOf(i).concat("s")));
+		out.print(request.getAttribute(String.valueOf(i).concat("c")));
+		out.print(request.getAttribute(String.valueOf(i).concat("t")));
+	}
+}catch (NumberFormatException e){
+   out.print("Không có phòng máy nào!");
 }
 %>
 </table>

@@ -14,11 +14,27 @@
 </tr>
 <tr>
 <td>Mã phòng:</td>
-<td><input type="text" name="maphong" id="maphong"></td>
+<td><input type="text" name="maphong" id="maphong"  value="<%=request.getAttribute("maphong")%>"></td>
+</tr>
+<tr>
+<td>Lớp độc lập:</td>
+<td><select name="malopdl"><%
+int m=Integer.parseInt(String.valueOf(request.getAttribute("solopdl")));
+for(int i=0;i<m;i++){
+	out.print("<option value='"+request.getAttribute(String.valueOf(i))+"'>"+request.getAttribute(String.valueOf(i))+"</option>");
+} 
+%></select></td>
 </tr>
 <tr>
 <td>Môn học:</td>
-<td><input type="text" name="mamon"></td>
+<td><select name="mamon"><%
+MonhocDao monhocDao=new MonhocDao();
+int n=Integer.parseInt(String.valueOf(request.getAttribute("somon")));
+for(int j=m+1;j<n;j++){
+	out.print("<option value='"+monhocDao.check_mamon(String.valueOf(request.getAttribute(String.valueOf(j))))+"'>"+request.getAttribute(String.valueOf(j))+"</option>");
+} 
+%></select>
+</td>
 </tr>
 <tr>
 <td>Ca:</td>

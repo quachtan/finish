@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.xomtro.DemoWebService.Model.DangkyModel;
+
 import fpt.finish.bean.Dang_ky_haui;
 import fpt.finish.connection.OracleConnUtils;
 
@@ -291,7 +293,7 @@ public class DangkyDao {
 	// Đăng ký phòng
 	public void insert_Dangky(Dang_ky_haui pmdk, Connection conn) {
 
-		String sql = " INSERT INTO dangky ( maphong , ma_user_haui , ca , mamon , thoigian ) VALUES (?,?,?,?,?)";
+		String sql = " INSERT INTO dangky ( maphong , ma_user_haui , ca , mamon ,malopdl, thoigian ) VALUES (?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -299,7 +301,8 @@ public class DangkyDao {
 			pstm.setString(2, pmdk.getMa_user_haui());
 			pstm.setString(3, pmdk.getCa());
 			pstm.setString(4, pmdk.getMamon());
-			pstm.setString(5, "2017-10-3");
+			pstm.setString(5, pmdk.getMalopdl());
+			pstm.setDate(6, (java.sql.Date) pmdk.getThoigian());
 			pstm.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -312,5 +315,34 @@ public class DangkyDao {
 				e.printStackTrace();
 			}
 		}
+	}
+	public DangkyModel thongtindangky(int maphong, String ca, String ngay){
+		connection=connectDB.getConnect();
+		DangkyModel ttdk=new DangkyModel();
+		String sql="SELECT * FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, ngay);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					ttdk=new DangkyModel(resultSet.getInt("maphong"), resultSet.getString("ma_user_haui"), resultSet.getString("ca"), resultSet.getString("mamon"),resultSet.getString("malopdl"), resultSet.getDate("thoigian"));
+					
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return ttdk;
 	}
 }

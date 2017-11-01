@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import fpt.finish.Dao.DangkyDao;
 import fpt.finish.Dao.UserDao;
 import fpt.finish.bean.Dang_ky_haui;
@@ -49,14 +50,16 @@ public class DangKyFormController extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Dang_ky_haui pmdk=new Dang_ky_haui();
 		 Connection conn = MyUtils.getStoredConnection(req);
 		DangkyDao dangkyDao=new DangkyDao();
-		pmdk.setMa_user_haui(req.getParameter("user_haui"));
-		pmdk.setMaphong(Long.parseLong(req.getParameter("maphong")));
-		pmdk.setCa(req.getParameter("ca"));
-		pmdk.setMamon(req.getParameter("mamon"));
-		pmdk.setThoigian(Date.valueOf(req.getParameter("day")));
+		String ma_user=req.getParameter("ma_user_haui");
+		String mp=req.getParameter("maphong");
+		String ca=req.getParameter("ca");
+		String malopdl=req.getParameter("malopdl");
+		String mamon=req.getParameter("mamon");
+		String thoigian=req.getParameter("day");
+		int maphong=Integer.parseInt(mp);
+		Dang_ky_haui pmdk=new Dang_ky_haui(maphong, ma_user, ca, mamon,malopdl, Date.valueOf(thoigian));
 		dangkyDao.insert_Dangky(pmdk, conn);
 	}
 }
