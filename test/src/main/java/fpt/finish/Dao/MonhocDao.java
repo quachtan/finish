@@ -32,14 +32,7 @@ public class MonhocDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		finally{
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
 		String tenmon=monhoc.getTenmon();
 		return tenmon;
 		
@@ -61,14 +54,7 @@ public class MonhocDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		finally{
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
 		String mamon=monhoc.getMamon();
 		return mamon;
 		

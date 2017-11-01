@@ -14,34 +14,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import fpt.finish.Dao.DangkyDao;
 import fpt.finish.Dao.LichdayDao;
 import fpt.finish.Dao.MonhocDao;
 import fpt.finish.Dao.UserDao;
 import fpt.finish.bean.Dang_ky_haui;
 import fpt.finish.bean.LichdayModel;
-import fpt.finish.bean.Phong_May_haui;
 import fpt.finish.bean.User_haui;
 import fpt.finish.until.MyUtils;
 
 
 
+
+
 public class DangKyFormController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	public DangKyFormController() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		UserDao userDao=new UserDao();
 		HttpSession session=req.getSession();
 		Connection conn=MyUtils.getStoredConnection(req);
+		User_haui loginedUser = MyUtils.getLoginedUser(session);
 		String username=(String) session.getAttribute("username");
 		String password=(String) session.getAttribute("password");
 		String magv;
-		try {
-			magv = userDao.check_magv(username, password,conn);
+		
+			magv=loginedUser.getMa_user();
 			req.setAttribute("magv", magv);
 			String ca=req.getParameter("ca");
 			String day=req.getParameter("day");
@@ -64,10 +63,7 @@ public class DangKyFormController extends HttpServlet{
 				j++;
 			}
 			req.setAttribute("somon", j);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 		
 		RequestDispatcher dispatcher=req.getRequestDispatcher("/page/DangKyForm.jsp");
