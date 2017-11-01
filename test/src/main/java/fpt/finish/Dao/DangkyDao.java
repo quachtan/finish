@@ -20,254 +20,258 @@ public class DangkyDao {
 	}
 	// Check phòng đã đăng ký theo thứ
 
-	public String check_dangkyCN(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+	public String check_dangkyCN(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 6) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==6)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT2(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian as FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT2(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 0) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==0)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT3(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT3(int maphong,String thoigian, String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 1) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==1)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT4(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian as FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT4(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 2) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==2)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT5(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT5(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 3) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==3)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT6(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigian FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT6(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 4) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==4)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
-
-	public String check_dangkyT7(long maphong, String begintime, String endtime, String ca, Connection conn) {
-
-		String sql = "SELECT thoigia FROM dangky WHERE maphong=? and thoigian>=? and thoigian<=? and ca=?";
-		String trangthai = "";
+		}
+	public String check_dangkyT7(int maphong,String thoigian,String ca)
+	{
+		connection=connectDB.getConnect();
+		String sql="SELECT WEEKDAY(thoigian) as 'thu' FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		String trangthai="";
 		try {
-			PreparedStatement pstm = conn.prepareStatement(sql);
-
-			pstm.setLong(1, maphong);
-			pstm.setString(2, begintime);
-			pstm.setString(3, endtime);
-			pstm.setString(4, ca);
-			ResultSet resultSet = pstm.executeQuery();
-			while (resultSet.next()) {
-				if (resultSet.getInt("thu") == 5) {
-					trangthai = "Đã đăng ký";
-				} else {
-					trangthai = "Chưa đăng ký";
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			resultSet=preparedStatement.executeQuery();
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("thu")==5)
+					{
+						trangthai="Đã đăng ký";
+					}
+					else{
+						trangthai="Chưa đăng ký";
+					}
+					
 				}
-
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally{
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		
 		return trangthai;
-	}
+		}
 	// check phòng máy đã đăng ký
 
 	public boolean checkPMDK(long maphong, String ca, Connection conn) throws SQLException {
