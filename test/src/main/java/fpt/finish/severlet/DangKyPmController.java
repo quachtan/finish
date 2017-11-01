@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xomtro.DemoWebService.Model.PhongmayModel;
-
 import fpt.finish.Dao.DangkyDao;
 import fpt.finish.Dao.PhongmayDao;
 import fpt.finish.bean.Phong_May_haui;
@@ -172,12 +170,13 @@ public class DangKyPmController extends HttpServlet{
 		AddDayLib addDayLib=new AddDayLib();
 		DangkyDao dangkyDao=new DangkyDao();
 		PhongmayDao phongmayDao=new PhongmayDao();
+		ArrayList<Phong_May_haui> dspm= phongmayDao.findAll(conn);
 		if(dspm!=null){
-			for (PhongmayModel pm : dspm) {
+			for (Phong_May_haui pm : dspm) {
 				// Ca sáng
 					String ca = "Sang";
 					String strs = "<tr><td>" + pm.getMaphong() + "</td><td>Sáng</td>";
-					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca).trim().compareTo("Đã đăng ký") == 0) {
+					if (dangkyDao.check_dangkyCN(pm.getMaphong(), dayCN, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayCN;
 						strs+= "<td>"+dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMalopdl();
 						strs += "<br>"+userDao.check_tengv(dangkyDao.thongtindangky(pm.getMaphong(), ca, day).getMa_user_haui());
