@@ -909,9 +909,11 @@ public class DBUtils {
 
 	//
 	public static List<Phong_May_haui> queryDangky(Connection conn) throws SQLException {
-		String sql = "Select dangky.id,dangky.maphong,phongmay.tenphong,phongmay.somay,dangky.mamon,dangky.ma_user_haui,dangky.thoigian,ca "
-				+ " from PHONGMAY,dangky " + "where phongmay.maphong=dangky.maphong "
-				+ "group by dangky.maphong,phongmay.tenphong,phongmay.somay,dangky.mamon,dangky.ma_user_haui,dangky.thoigian,ca,dangky.id";
+		String sql = "Select dangky.id,dangky.maphong,phongmay.tenphong,phongmay.somay,dangky.mamon,dangky.ma_user_haui,dangky.thoigian,ca, "
+				+ " lophoc.malopdl,monhoc.tenmon,lichday.lichday,lophoc.tenlopondinh,user_haui.username "
+				+ " from PHONGMAY,dangky,monhoc,lichday,lophoc,user_haui " 
+				+ " where phongmay.maphong=dangky.maphong and dangky.ma_user_haui=lichday.ma_user and lichday.malopdl=lophoc.malopdl and lichday.mamon=monhoc.mamon and dangky.ma_user_haui=user_haui.ma_user"
+				+ " group by dangky.maphong,phongmay.tenphong,phongmay.somay,dangky.mamon,dangky.ma_user_haui,dangky.thoigian,ca,dangky.id";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -927,7 +929,11 @@ public class DBUtils {
 			String ca1 = rs.getNString("ca");
 			String tenphong = rs.getString("tenphong");
 			long somay = rs.getLong("somay");
-
+			String malopdl=rs.getString("malopdl");
+			String tenmon=rs.getString("tenmon");
+			String lichday=rs.getString("lichday");
+			String tenlopondinh=rs.getString("tenlopondinh");
+			String username=rs.getString("username");
 			Phong_May_haui dk = new Phong_May_haui();
 			dk.setMa_user_haui(ma_user_haui);
 			dk.setId(id);
@@ -937,6 +943,11 @@ public class DBUtils {
 			dk.setMaphong(maphong);
 			dk.setTenphong(tenphong);
 			dk.setSomay(somay);
+			dk.setMalopdl(malopdl);
+			dk.setTenmon(tenmon);
+			dk.setLichday(lichday);
+			dk.setTenlopondinh(tenlopondinh);
+			dk.setTengv(username);
 			list1.add(dk);
 
 		}

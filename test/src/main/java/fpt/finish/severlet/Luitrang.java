@@ -22,14 +22,15 @@ import fpt.finish.bean.Phong_May_haui;
 import fpt.finish.bean.User_haui;
 import fpt.finish.until.DBUtils;
 import fpt.finish.until.MyUtils;
-@WebServlet(urlPatterns = { "/next" } )
-public class Nexttrangtkb extends HttpServlet {
+
+@WebServlet(urlPatterns = { "/lui" } )
+public class Luitrang extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public Nexttrangtkb() {
+	public Luitrang() {
 		super();
 	}
 
@@ -73,7 +74,7 @@ public class Nexttrangtkb extends HttpServlet {
 		//c2.setTime(c1.getTime());
 	//	String thu2=formatter1.format(c1.getTime());
 		if(dateFormat.equals("Mon")){
-			c1.roll(Calendar.DAY_OF_YEAR,7);
+			c1.roll(Calendar.DAY_OF_YEAR,-7);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -211,7 +212,7 @@ public class Nexttrangtkb extends HttpServlet {
 
 		}
 		if(dateFormat.equals("Tue")){
-			c1.roll(Calendar.DAY_OF_YEAR,6);
+			c1.roll(Calendar.DAY_OF_YEAR,-8);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -348,7 +349,7 @@ public class Nexttrangtkb extends HttpServlet {
 			request.setAttribute("ngay",thu2check);
 
 		}if(dateFormat.equals("Wed")){
-			c1.roll(Calendar.DAY_OF_YEAR,5);
+			c1.roll(Calendar.DAY_OF_YEAR,-9);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -486,7 +487,7 @@ public class Nexttrangtkb extends HttpServlet {
 
 		}
 		if(dateFormat.equals("Thu")){
-			c1.roll(Calendar.DAY_OF_YEAR,4);
+			c1.roll(Calendar.DAY_OF_YEAR,-10);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -624,7 +625,7 @@ public class Nexttrangtkb extends HttpServlet {
 
 		}
 		if(dateFormat.equals("Fri")){
-			c1.roll(Calendar.DAY_OF_YEAR,3);
+			c1.roll(Calendar.DAY_OF_YEAR,-11);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -762,7 +763,7 @@ public class Nexttrangtkb extends HttpServlet {
 
 		}
 		if(dateFormat.equals("Sat")){
-			c1.roll(Calendar.DAY_OF_YEAR,2);
+			c1.roll(Calendar.DAY_OF_YEAR,-12);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -900,7 +901,7 @@ public class Nexttrangtkb extends HttpServlet {
 
 		}
 		if(dateFormat.equals("Sun")){
-			c1.roll(Calendar.DAY_OF_YEAR,1);
+			c1.roll(Calendar.DAY_OF_YEAR,-13);
 			String thu2=formatter.format(c1.getTime());
 			String thu2check=formatter1.format(c1.getTime());
 			c1.roll(Calendar.DAY_OF_YEAR,1);
@@ -1048,7 +1049,7 @@ public class Nexttrangtkb extends HttpServlet {
 					//String dateFormat = formatter.format(date);
 					
 					c1.setTime(datengay);
-					c1.roll(Calendar.DAY_OF_YEAR,7);
+					c1.roll(Calendar.DAY_OF_YEAR,-7);
 					String thu2=formatter.format(c1.getTime());
 					String thu2check=formatter1.format(c1.getTime());
 					c1.roll(Calendar.DAY_OF_YEAR,1);

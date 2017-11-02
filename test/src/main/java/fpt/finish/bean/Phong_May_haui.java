@@ -12,8 +12,20 @@ public class Phong_May_haui {
 	private String mamon;
 	private Date thoigian;
 	private String trangthai;
+	private String malopdl;
+	private String tenmon;
+	private String lichday;
+    private String	tenlopondinh;
+    private String	tengv;
+	public Phong_May_haui() {
+		super();
+	}
+
+
+
 	public Phong_May_haui(long id, long maphong, String tenphong, long somay, String ma_user_haui, String ca,
-			String mamon, Date thoigian, String trangthai) {
+			String mamon, Date thoigian, String trangthai, String malopdl, String tenmon, String lichday,
+			String tenlopondinh, String tengv) {
 		super();
 		this.id = id;
 		this.maphong = maphong;
@@ -24,10 +36,15 @@ public class Phong_May_haui {
 		this.mamon = mamon;
 		this.thoigian = thoigian;
 		this.trangthai = trangthai;
+		this.malopdl = malopdl;
+		this.tenmon = tenmon;
+		this.lichday = lichday;
+		this.tenlopondinh = tenlopondinh;
+		this.tengv = tengv;
 	}
-	public Phong_May_haui() {
-		super();
-	}
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -82,12 +99,45 @@ public class Phong_May_haui {
 	public void setTrangthai(String trangthai) {
 		this.trangthai = trangthai;
 	}
+	public String getMalopdl() {
+		return malopdl;
+	}
+	public void setMalopdl(String malopdl) {
+		this.malopdl = malopdl;
+	}
+	public String getTenmon() {
+		return tenmon;
+	}
+	public void setTenmon(String tenmon) {
+		this.tenmon = tenmon;
+	}
+	public String getLichday() {
+		return lichday;
+	}
+	public void setLichday(String lichday) {
+		this.lichday = lichday;
+	}
+	public String getTenlopondinh() {
+		return tenlopondinh;
+	}
+	public void setTenlopondinh(String tenlopondinh) {
+		this.tenlopondinh = tenlopondinh;
+	}
 
 
-	
+
+	public String getTengv() {
+		return tengv;
+	}
+
+
+
+	public void setTengv(String tengv) {
+		this.tengv = tengv;
+	}
 
 	
 	
-	
-	
+    
+    
 }
