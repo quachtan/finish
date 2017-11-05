@@ -43,6 +43,7 @@ public class DBUtils {
 			String tengv = rs.getString("tengv");
 			String email = rs.getString("email");
 			String sdt = rs.getString("sdt");
+			int ma_role=rs.getInt("ma_role");
 			/*
 			 * String tenphong=rs.getString("tenphong"); // long maphong=rs.getL
 			 * ong("maphong"); String ca=rs.getString("ca"); String
@@ -57,6 +58,7 @@ public class DBUtils {
 			user.setTengv(tengv);
 			user.setEmail(email);
 			user.setSdt(sdt);
+			user.setMa_role(ma_role);
 			// user.setMaphong(maphong);
 			/*
 			 * user.setCa(ca); user.setMamon(mamon); user.setThoigian(thoigian);
@@ -89,6 +91,7 @@ public class DBUtils {
 		}
 		return null;
 	}
+	
 
 	///
 	public static String thu2sang(Connection conn, //
@@ -1013,7 +1016,7 @@ public class DBUtils {
 		pstm.executeUpdate();
 	}
 
-	public static User_Role_haui Role(Connection conn,String ma_user_haui) throws SQLException {
+	/*public static User_Role_haui Role(Connection conn,String  ) throws SQLException {
 		String sql = "select * from user_role where ma_user_haui = ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -1032,5 +1035,5 @@ public class DBUtils {
 			return user_role;
 		}
 		return null;
-	}
+	}*/
 }

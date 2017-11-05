@@ -1,10 +1,29 @@
 package fpt.finish.bean;
 
 public class LichdayModel {
+	private long id;
 	private String ma_user;
 	private String malopdl;
 	private String mamon;
 	private String lichday;
+	public LichdayModel( String ma_user, String malopdl, String mamon, String lichday) {
+		super();
+	
+		this.ma_user = ma_user;
+		this.malopdl = malopdl;
+		this.mamon = mamon;
+		this.lichday = lichday;
+	}
+	public LichdayModel() {
+		super();
+	}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getMa_user() {
 		return ma_user;
 	}
@@ -29,17 +48,7 @@ public class LichdayModel {
 	public void setLichday(String lichday) {
 		this.lichday = lichday;
 	}
-	public LichdayModel() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public LichdayModel(String ma_user, String malopdl, String mamon, String lichday) {
-		super();
-		this.ma_user = ma_user;
-		this.malopdl = malopdl;
-		this.mamon = mamon;
-		this.lichday = lichday;
-	}
+	
 	
 
 }

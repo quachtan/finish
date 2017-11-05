@@ -280,4 +280,12 @@ public class DangkyDao {
 		
 		return ttdk;
 	}
+	public static void deletedk(Connection conn, long maphong) throws SQLException {
+		String sql = "delete from dangky " + "where maphong = ?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setLong(1, maphong);
+
+		pstm.executeUpdate();
+	}
+	
 }

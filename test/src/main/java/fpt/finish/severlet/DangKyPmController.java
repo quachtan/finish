@@ -10,6 +10,7 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,7 @@ import fpt.finish.until.AddDayLib;
 import fpt.finish.until.MyUtils;
 
 
-
+@WebServlet(urlPatterns = { "/dangkypms" } )
 public class DangKyPmController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	public DangKyPmController() {
@@ -198,7 +199,8 @@ public class DangKyPmController extends HttpServlet{
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca="+ca+"&day="+dayCN+"&maphong="+pm.getMaphong();
-						strs+="'>Đăng ký</a></td>";
+						strs+="' id='a' >Đăng ký</a> ";
+						strs+="<br><input type='button' value='Send' onclick='sendMessage();'/></td>";
 					}
 					if (dangkyDao.check_dangkyT2(pm.getMaphong(), dayT2, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT2;
@@ -224,7 +226,7 @@ public class DangKyPmController extends HttpServlet{
 						strs+="'>Đổi phòng</a></td>";
 					} else {
 						strs += "<td><a href='dangkypmform?ca=" + ca + "&day=" + dayT3+"&maphong="+pm.getMaphong();
-						strs += "'>Đăng ký</a></td>";
+						strs += "' id='b' >Đăng ký</a></td>";
 					}
 					if (dangkyDao.check_dangkyT4(pm.getMaphong(), dayT4, ca,conn).trim().compareTo("Đã đăng ký") == 0) {
 						String day=dayT4;

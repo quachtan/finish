@@ -24,4 +24,34 @@ public class ImportDao {
 	
 		pstm.executeUpdate();
 	}
+	public static void improtexcelmon(String urlfile, Connection conn) throws SQLException {
+		// TODO Auto-generated method stub
+	
+		String sql=" LOAD DATA INFILE  ?  INTO TABLE monhoc "
+				+ " FIELDS TERMINATED BY ?  " 
+                + " (mamon, tenmon) ";
+		
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, urlfile);
+		pstm.setString(2, ",");
+		
+	
+		pstm.executeUpdate();
+	}
+	public static void improtexcellop(String urlfile, Connection conn) throws SQLException {
+		// TODO Auto-generated method stub
+	
+		String sql=" LOAD DATA INFILE  ?  INTO TABLE lophoc "
+				+ " FIELDS TERMINATED BY ?  " 
+                + " (malopdl , tenlopondinh) ";
+		
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, urlfile);
+		pstm.setString(2, ",");
+		
+	
+		pstm.executeUpdate();
+	}
 }
