@@ -4,16 +4,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
-<%String username=(String) session.getAttribute("username"); %>
+
+		
+<div class="container" >
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+<div class="col-md-4 col-md-offset-4">
 <form action="<%=request.getContextPath() %>/ChangePass" method="POST" role="form">
 	
 		<div class="form-group">
 			<label for="">Tên tài khoản:</label>
-			<input type="text" readonly="readonly" class="form-control" name="username" value="<%=username %>" >
+			<input type="text" class="form-control" name="username">
 			<label for="">Mật khẩu cũ:</label>
 			<input type="password" class="form-control" name="oldpassword">
 			<label for="">Mật khẩu mới:</label>
@@ -21,7 +27,11 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Xác nhận</button>
 	</form>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	</div>
+	<jsp:include page="footer.jsp" />
+	</div>
+	
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

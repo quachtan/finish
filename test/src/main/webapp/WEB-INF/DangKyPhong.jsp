@@ -5,12 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Insert title here</title>
+<title>Đăng ký phòng máy</title>
+ <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
 </head>
 <body>
+<%-- <div class="container" >
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu.jsp" /> --%>
 <table class="table table-hover" border="1">
 		<thead>
 			<tr style="background-color: yellow;">
@@ -40,7 +44,9 @@ try {
 %>
 		</tbody>
 	</table>
+	<%-- <jsp:include page="footer.jsp" />
+	</div>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script> --%>
 </body>
 </html>

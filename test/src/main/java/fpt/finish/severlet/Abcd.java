@@ -1,6 +1,7 @@
 package fpt.finish.severlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fpt.finish.bean.User_haui;
+import fpt.finish.until.MyUtils;
 
 /**
  * Servlet implementation class Abcd
@@ -27,11 +32,23 @@ public class Abcd extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 RequestDispatcher dispatcher = request.getServletContext()
+		  Connection conn = MyUtils.getStoredConnection(req);
+		  
+			
+			 HttpSession session = req.getSession();
+				User_haui userhaui = MyUtils.getLoginedUser(session);
+				if (userhaui == null) {
+					   RequestDispatcher dispatcher = req.getServletContext()
+				                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+				        dispatcher.forward(req, resp);
+				}
+				else{
+		 RequestDispatcher dispatcher = req.getServletContext()
 	                .getRequestDispatcher("/WEB-INF/NewFile2.jsp");
-	        dispatcher.forward(request, response);
+	        dispatcher.forward(req, resp);
+				}
 	}
 
 	/**

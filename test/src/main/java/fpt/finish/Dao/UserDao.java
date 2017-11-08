@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-
+import fpt.finish.bean.LopHocModel;
 import fpt.finish.bean.User_haui;
 import fpt.finish.connection.OracleConnUtils;
 
@@ -235,6 +234,55 @@ public class UserDao  {
 		}
 		
 		
+	}
+	public boolean checkNewUser(String username,Connection conn){
+		
+		int count=0;
+		//UserModel user=new UserModel();
+		String sql="SELECT * FROM `user_haui` WHERE username=?";
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, username);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+			{count++;}
+			if(count==1){
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	public  static ArrayList<User_haui> findAll1(Connection conn) throws SQLException {
+		ArrayList<User_haui> dspm = new ArrayList<>();
+
+		String sql = "SELECT * FROM user_haui";
+		
+			PreparedStatement pstm = conn.prepareStatement(sql);
+
+			ResultSet resultSet = pstm.executeQuery();
+			while (resultSet.next()) {
+				User_haui phmay = new User_haui();
+				String ma_user=resultSet.getString("ma_user");
+				phmay.setMa_user(ma_user);
+				String username=resultSet.getString("username");
+				phmay.setUserName(username);
+				String tengv=resultSet.getString("tengv");
+				phmay.setTengv(tengv);
+				String email=resultSet.getString("email");
+				phmay.setEmail(email);
+				String sdt=resultSet.getString("sdt");
+				phmay.setSdt(sdt);
+				
+				
+				dspm.add(phmay);
+			}
+		
+		return dspm;
 	}
 	}
 

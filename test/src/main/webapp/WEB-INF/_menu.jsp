@@ -5,8 +5,13 @@
  
    <a href="${pageContext.request.contextPath}/">Home</a>
    <a href="${pageContext.request.contextPath}/thoikhoabieu">Thoi khoa bieu</a>
-   <a href="${pageContext.request.contextPath}/dangkypm">Dang ky phong</a>
+   <a href="${pageContext.request.contextPath}/Abcd">Dang ky phong</a>
    <a href="${pageContext.request.contextPath}/dangkytk">Tao tai khoan</a>
+   <a href="${pageContext.request.contextPath}/QuanLylichday">Quanlylichday</a>
+     <a href="${pageContext.request.contextPath}/Quanlymon">Quanlymon</a>
+       <a href="${pageContext.request.contextPath}/Quanlylop">Quanlylop</a>
+         <a href="${pageContext.request.contextPath}/qluser">Quanlynguoidung</a>
+           <a href="${pageContext.request.contextPath}/Viewphongmay">Quanlypm</a>
    |
    <%--  <a href="${pageContext.request.contextPath}/timkiem">Tim kiem</a>
    | --%>

@@ -44,40 +44,82 @@ public class Importexcel extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
        
+	   try {
            String description = request.getParameter("description");
            System.out.println("Description: " + description);
  
-           Connection conn = MyUtils.getStoredConnection(request);
-           
-           
-         
-    
-           String errorString = null;
+  
+           // Đường dẫn tuyệt đối tới thư mục gốc của web app.
+           String appPath = request.getServletContext().getRealPath("");
+           appPath = appPath.replace('\\', '/');
+ 
+  
+           // Thư mục để save file tải lên.
+           String fullSavePath = null;
+           if (appPath.endsWith("/")) {
+               fullSavePath = appPath + SAVE_DIRECTORY;
+           } else {
+               fullSavePath = appPath + "/" + SAVE_DIRECTORY;
+           }
+ 
+  
+           // Tạo thư mục nếu nó không tồn tại.
+           File fileSaveDir = new File(fullSavePath);
+           if (!fileSaveDir.exists()) {
+               fileSaveDir.mkdir();
+           }
+  
+           // Danh mục các phần đã upload lên (Có thể là nhiều file).
+           for (Part part : request.getParts()) {
+               String fileName = extractFileName(part);
+               if (fileName != null && fileName.length() > 0) {
+                   String filePath = fullSavePath + File.separator + fileName;
+                   System.out.println("Write attachment to file: " + filePath);
+                   String abc=filePath.replace("\\", "/");
+                   // Ghi vào file.
+                   part.write(filePath);
+                   Connection conn = MyUtils.getStoredConnection(request);
+
+              		String errorString = null;
+
+              		try {
+              			ImportDao.improtexcel(abc, conn);
+              			
+              		} catch (SQLException e) {
+              			e.printStackTrace();
+              			errorString = e.getMessage();
+              		}
+               }
+           }
           
-           try {
-               ImportDao.improtexcel(description, conn);;
-           } catch (SQLException e) {
-               e.printStackTrace();
-               errorString = e.getMessage();
-           } 
-            
-           // Nếu có lỗi, forward (chuyển tiếp) sang trang thông báo lỗi.
-           if (errorString != null) {
-               // Lưu thông tin vào request attribute trước khi forward sang views.
-               request.setAttribute("errorString", errorString);
-               // 
-               RequestDispatcher dispatcher = request.getServletContext()
-                       .getRequestDispatcher("/WEB-INF/deleteProductErrorView.jsp");
-               dispatcher.forward(request, response);
+           // Upload thành công.
+           response.sendRedirect(request.getContextPath() + "/QuanLylichday");
+       } catch (Exception e) {
+           e.printStackTrace();
+           request.setAttribute("errorMessage", "Error: " + e.getMessage());
+           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsps/uploadFile.jsp");
+           dispatcher.forward(request, response);
+       }
+   }
+ 
+   private String extractFileName(Part part) {
+       // form-data; name="file"; filename="C:\file1.zip"
+       // form-data; name="file"; filename="C:\Note\file2.zip"
+       String contentDisp = part.getHeader("content-disposition");
+       String[] items = contentDisp.split(";");
+       for (String s : items) {
+           if (s.trim().startsWith("filename")) {
+               // C:\file1.zip
+               // C:\Note\file2.zip
+               String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
+               clientFileName = clientFileName.replace("\\", "/");
+               int i = clientFileName.lastIndexOf('/');
+               // file1.zip
+               // file2.zip
+               return clientFileName.substring(i + 1);
            }
-           // Nếu mọi thứ tốt đẹp.
-           // Redirect (chuyển hướng) sang trang danh sách sản phẩm.
-           else {
-        	   RequestDispatcher dispatcher = request.getServletContext()
-                       .getRequestDispatcher("/WEB-INF/deleteProductErrorView.jsp");
-               dispatcher.forward(request, response);
-           }
-           
+       }
+       return null;
    }
   
 }

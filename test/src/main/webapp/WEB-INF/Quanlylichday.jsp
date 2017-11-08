@@ -7,32 +7,39 @@
 <html>
 <head>
 <title>Upload files</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
 </head>
 <body>
+<div class="container" >
 
-	<div style="padding: 5px; color: red; font-style: italic;">
-		${errorMessage}</div>
-
-	<h2>Upload Files</h2>
-
-	<form method="post"
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+		<form method="post"
 		action="${pageContext.request.contextPath}/uploadFile"
 		enctype="multipart/form-data">
 
-		Select file to upload: <br /> <input type="file" name="anh" /> <br />
-		Description: <br /> <input type="text" name="description" size="100" />
-		<br /> <br /> <input type="submit" value="Upload" />
+		Select file to upload: <br /> <input type="file" class="form-control" name="anh" /> <br />
+		
+		<br /> <br /> <button type="submit" class="btn btn-primary">Xác nhận</button>
 	</form>
-	<table id="" class="table">
+<table class="table table-hover" border="1">
+
+	
+
+	
+	
 		<thead>
-			<tr>
+				<tr style="background-color: yellow;">
 				<th style="width: 100px; text-align: center;" colspan="1">ID</th>
-				<th style="width: 100px; text-align: center;" colspan="1">Ma_USER</th>
-				<th style="width: 100px; text-align: center;" colspan="1">MALOPDL</th>
-				<th style="width: 100px; text-align: center;" colspan="1">MAMON</th>
-				<th style="width: 100px; text-align: center;" colspan="1">LICHDAY</th>
-				<!-- <th style="width: 150px;text-align: center;" colspan="1">THU 6</th>
-					<th style="width: 150px;text-align: center;" colspan="1">THU 7</th> -->
+				<th style="width: 100px; text-align: center;" colspan="1">MÃ GIẢNG VIÊN</th>
+				<th style="width: 100px; text-align: center;" colspan="1">MÃ LỚP ĐỘC LẬP</th>
+				<th style="width: 100px; text-align: center;" colspan="1">MÃ MÔN</th>
+				<th style="width: 100px; text-align: center;" colspan="1">LỊCH DẠY</th>
+				<th style="width: 150px;text-align: center;" colspan="1">CẬP NHẬT</th>
+				<th style="width: 150px;text-align: center;" colspan="1">XOÁ</th>
 
 			</tr>
 		</thead>
@@ -51,20 +58,24 @@
 						<td class="center"><button name="btnxoa"
 								title="xoa" id="${row.id}"  onclick="Redirect();">DELETE</button></td> --%>
 					<td style="text-align: center;"><a
-						href="Editlichday?id=${row.id}">UPDATE</a></td>
+						href="Editlichday?id=${row.id}">CẬP NHẬT</a></td>
 					<td style="text-align: center;"><a
-						href="Deletelichday?id=${row.id}">XOA</a></td>
+						href="Deletelichday?id=${row.id}">XOÁ</a></td>
 					<%-- <td><a href="${row.id}">delete</a></td>  --%>
 				</tr>
 			</c:forEach>
 		</tbody>
 
-		<tr style="width: 40%">
-			<td><a href="/test/Addlichday">THÊM PHÒNG MÁY</a>
-		</tr>
+		
 
 
 	</table>
-
+	
+			<a href="/test/Addlichday">THÊM LỊCH DẠY</a>
+		
+		<jsp:include page="footer.jsp" />
+	</div>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

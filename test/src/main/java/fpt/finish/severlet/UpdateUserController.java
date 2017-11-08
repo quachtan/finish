@@ -65,7 +65,6 @@ public class UpdateUserController extends HttpServlet {
 		user.setSdt(sdt);
 		UserDao userDao=new UserDao();
 		userDao.UpdateUsertheoMa(user,conn);
-		
 		response.sendRedirect("qluser");
 	}
 

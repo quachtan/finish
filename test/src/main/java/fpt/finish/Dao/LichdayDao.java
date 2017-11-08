@@ -149,4 +149,26 @@ public class LichdayDao {
 		pstm.setLong(5, pmhaui.getId());
 		pstm.executeUpdate();
 	}
+	public boolean checkLD(String malopdl,String mamon,Connection conn){
+		
+		String sql="SELECT mamon FROM `lichday` WHERE malopdl=?";
+		String ma_mon="";
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, malopdl);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				ma_mon=resultSet.getString("mamon");
+				
+			}
+			if(ma_mon.trim().compareTo(mamon)==0){
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

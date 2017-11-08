@@ -1,49 +1,47 @@
+<%@page import="fpt.finish.until.MyUtils"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="fpt.finish.Dao.MonhocDao"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
 
+		
+<div class="container" >
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+<form action="<%=request.getContextPath()%>/editpm" method="POST" role="form">
+<div class="col-md-4 col-md-offset-4 formcontainer" style="height: 430px;">
 
-<%@ page session="false"%>
-
-
-
-<div class="section">
-	<div class="form-group">
-	  <form method="POST" action="${pageContext.request.contextPath}/editpm">
-		<table id="" class="table">
-			<thead>
-				<tr>
-					<th style="width: 100px;" colspan="1">Mã Phòng</th>
-					<th style="width: 100px;" colspan="1">Tên Phòng</th>
-					<th style="width: 200px;" colspan="1">Số Máy</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${pmbean != null }">
-					<tr class="odd">
-						<td class="center">${pmbean.maphong}</td>
-						<td class="center ">${pmbean.tenphong}</td>
-						<td class="center ">${pmbean.somay}</td>
-
-					</tr>
-				</c:if>
-			</tbody>
-			<tr>
-				<td>Mã Phòng</td>
-				<td><input name="maphong" id="maphong" value="${pmbean.maphong}" /></td>
-			</tr>
-			<tr>
-				<td>Tên Phòng</td>
-				<td><input name="tenphong" id="tenphong" value="${pmbean.tenphong}" /></td>
-			</tr>
-			<tr>
-				<td>Số Máy</td>
-				<td><input name="somay" id="somay" value="${pmbean.somay}" /></td>
-			</tr>
-
-		</table>
-		<input type="submit" value="Submit" />
-		  </form>
+	<div class="form-group" style="margin-top: 50px;">
+		<label for="">Mã phòng</label>
+		<input type="text" readonly="readonly" class="form-control" name="maphong" value="${pmbean.maphong}">
+		<label for="">Tên phòng</label>
+		<input type="text" class="form-control" name="tenphong" value="${pmbean.tenphong}">
+		<label for="">Số máy</label>
+		<input type="text" class="form-control" name="somay" value="${pmbean.somay}">
 	</div>
-</div>
 
+	
 
+	<button type="submit" class="btn btn-primary">Xác nhận</button>
+	</div>
+	</form>
+	
+	<jsp:include page="footer.jsp" />
+	</div>
+	
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

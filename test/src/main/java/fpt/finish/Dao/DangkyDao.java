@@ -287,5 +287,31 @@ public class DangkyDao {
 
 		pstm.executeUpdate();
 	}
+	public boolean checkAddDK(int maphong,String thoigian,String ca,Connection conn)
+	{
+		
+		String sql="SELECT * FROM `dangky` WHERE maphong=? and thoigian=? and ca=?";
+		int count=0;
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setInt(1, maphong);
+			preparedStatement.setString(2, thoigian);
+			preparedStatement.setString(3, ca);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+				{
+					count++;
+					
+				}
+			if(count==1){
+				return true;
+			}	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		}
 	
 }

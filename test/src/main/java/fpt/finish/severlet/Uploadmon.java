@@ -1,5 +1,6 @@
 package fpt.finish.severlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import fpt.finish.Dao.ImportDao;
 import fpt.finish.until.MyUtils;
@@ -44,38 +46,81 @@ public class Uploadmon extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String description = request.getParameter("description");
-		System.out.println("Description: " + description);
+		 try {
+	           String description = request.getParameter("description");
+	           System.out.println("Description: " + description);
+	 
+	  
+	           // Đường dẫn tuyệt đối tới thư mục gốc của web app.
+	           String appPath = request.getServletContext().getRealPath("");
+	           appPath = appPath.replace('\\', '/');
+	 
+	  
+	           // Thư mục để save file tải lên.
+	           String fullSavePath = null;
+	           if (appPath.endsWith("/")) {
+	               fullSavePath = appPath + SAVE_DIRECTORY;
+	           } else {
+	               fullSavePath = appPath + "/" + SAVE_DIRECTORY;
+	           }
+	 
+	  
+	           // Tạo thư mục nếu nó không tồn tại.
+	           File fileSaveDir = new File(fullSavePath);
+	           if (!fileSaveDir.exists()) {
+	               fileSaveDir.mkdir();
+	           }
+	  
+	           // Danh mục các phần đã upload lên (Có thể là nhiều file).
+	           for (Part part : request.getParts()) {
+	               String fileName = extractFileName(part);
+	               if (fileName != null && fileName.length() > 0) {
+	                   String filePath = fullSavePath + File.separator + fileName;
+	                   System.out.println("Write attachment to file: " + filePath);
+	                   String abc=filePath.replace("\\", "/");
+	                   // Ghi vào file.
+	                   part.write(filePath);
+	                   Connection conn = MyUtils.getStoredConnection(request);
 
-		Connection conn = MyUtils.getStoredConnection(request);
+	              		String errorString = null;
 
-		String errorString = null;
-
-		try {
-			ImportDao.improtexcelmon(description, conn);
-			;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			errorString = e.getMessage();
-		}
-
-		// Nếu có lỗi, forward (chuyển tiếp) sang trang thông báo lỗi.
-		if (errorString != null) {
-			// Lưu thông tin vào request attribute trước khi forward sang views.
-			request.setAttribute("errorString", errorString);
-			//
-			RequestDispatcher dispatcher = request.getServletContext()
-					.getRequestDispatcher("/WEB-INF/deleteProductErrorView.jsp");
-			dispatcher.forward(request, response);
-		}
-		// Nếu mọi thứ tốt đẹp.
-		// Redirect (chuyển hướng) sang trang danh sách sản phẩm.
-		else {
-			RequestDispatcher dispatcher = request.getServletContext()
-					.getRequestDispatcher("/WEB-INF/deleteProductErrorView.jsp");
-			dispatcher.forward(request, response);
-		}
-
-	}
-
+	              		try {
+	              			ImportDao.improtexcelmon(abc, conn);
+	              			
+	              		} catch (SQLException e) {
+	              			e.printStackTrace();
+	              			errorString = e.getMessage();
+	              		}
+	               }
+	           }
+	          
+	           // Upload thành công.
+	           response.sendRedirect(request.getContextPath() + "/Quanlymon");
+	       } catch (Exception e) {
+	           e.printStackTrace();
+	           request.setAttribute("errorMessage", "Error: " + e.getMessage());
+	           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsps/uploadFile.jsp");
+	           dispatcher.forward(request, response);
+	       }
+	   }
+	 
+	   private String extractFileName(Part part) {
+	       // form-data; name="file"; filename="C:\file1.zip"
+	       // form-data; name="file"; filename="C:\Note\file2.zip"
+	       String contentDisp = part.getHeader("content-disposition");
+	       String[] items = contentDisp.split(";");
+	       for (String s : items) {
+	           if (s.trim().startsWith("filename")) {
+	               // C:\file1.zip
+	               // C:\Note\file2.zip
+	               String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
+	               clientFileName = clientFileName.replace("\\", "/");
+	               int i = clientFileName.lastIndexOf('/');
+	               // file1.zip
+	               // file2.zip
+	               return clientFileName.substring(i + 1);
+	           }
+	       }
+	       return null;
+	   }
 }

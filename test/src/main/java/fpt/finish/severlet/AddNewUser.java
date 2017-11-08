@@ -45,14 +45,20 @@ public class AddNewUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Connection conn=MyUtils.getStoredConnection(request);
-		Md5Lib md5Lib=new Md5Lib();
+		UserDao userDao=new UserDao();
+		//Md5Lib md5Lib=new Md5Lib();
 		String ma_user=request.getParameter("ma_user");
 		String username=request.getParameter("username");
-		String password=md5Lib.md5(request.getParameter("password"));
-		UserDao userDao=new UserDao();
+		String password=request.getParameter("password");
+		if(userDao.checkNewUser(username,conn)==true){
+			request.setAttribute("err", "Tài khoản đã tồn tại");
+			RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/AddNewUser.jsp");
+			rd.forward(request, response);
+		}else{
+		
 		userDao.insert_tk(ma_user, username, password,conn);
 		response.sendRedirect("qluser");
-		
+		}
 	}
 
 }

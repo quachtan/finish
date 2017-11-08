@@ -10,34 +10,32 @@
 <title> Mã Yên Quán-Khu ẩm thực núi rừng</title>
 
 
-<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/js/main.js" />"></script>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
 </head>
 <body>
-	<div class="container">
-		
-		<div class="section">
-			<div class="form-group">
-			<div style="padding: 5px; color: red; font-style: italic;">
-		${errorMessage}</div>
+<div class="container" >
 
-	<h2>Upload Files</h2>
-
-	<form method="post"
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+		<form method="post"
 		action="${pageContext.request.contextPath}/Uploadmon"
 		enctype="multipart/form-data">
 
-		Select file to upload: <br /> <input type="file" name="anh" /> <br />
-		Description: <br /> <input type="text" name="description" size="100" />
-		<br /> <br /> <input type="submit" value="Upload" />
+		Select file to upload: <br /> <input type="file" class="form-control" name="anh" /> <br />
+	
+		<br /> <br /> <input type="submit" class="btn btn-primary" value="Upload" />
 	</form>
-				<table id="" class="table">
+<table class="table table-hover" border="1">
+
 					<thead>
-						<tr>
-							<th style="width: 100px; text-align: center;" colspan="1">MAMON</th>
-							<th style="width: 100px; text-align: center;" colspan="1">TENMON</th>
-							<th style="width: 100px; text-align: center;" colspan="1">UPDATE</th>
-							<th style="width: 100px; text-align: center;" colspan="1">DELETE</th>
+					<tr style="background-color: yellow;">
+							<th style="width: 100px; text-align: center;" colspan="1">MÃ MÔN</th>
+							<th style="width: 100px; text-align: center;" colspan="1">TÊN MÔN</th>
+							<th style="width: 100px; text-align: center;" colspan="1">CẬP NHẬT</th>
+							<th style="width: 100px; text-align: center;" colspan="1">XOÁ</th>
 							<!-- <th style="width: 150px;text-align: center;" colspan="1">THU 6</th>
 					<th style="width: 150px;text-align: center;" colspan="1">THU 7</th> -->
 						
@@ -55,33 +53,24 @@
 								title="luu" iduser="${row.id}">Update</button></td>
 						<td class="center"><button name="btnxoa"
 								title="xoa" id="${row.id}"  onclick="Redirect();">DELETE</button></td> --%>
-								 <td style="text-align: center;"><a href="Suamon?mamon=${row.mamon}">UPDATE</a></td>
-								 <td style="text-align: center;"><a href="Xoamon?mamon=${row.mamon}">XOA</a></td>
+								 <td style="text-align: center;"><a href="Suamon?mamon=${row.mamon}">CẬP NHẬT</a></td>
+								 <td style="text-align: center;"><a href="Xoamon?mamon=${row.mamon}">XOÁ</a></td>
 								<%-- <td><a href="${row.id}">delete</a></td>  --%>
 							</tr>
 						</c:forEach>
 					</tbody>
 
-					<tr style="width: 40%">
-						<td><a href="/test/Themmon">THÊM PHÒNG MÁY</a>
-
-					</tr>
+		
 
 
-				</table>
-			</div>
-		</div>
-		<script type="text/javascript">
-			function Redirect() {
-				var id = document.getElementById("txtname").value;
-				alert("XIN CHAO:" + id);
-				var url = "<c:url value="tk"/>" + "/" + id;
-				window.location.href = url;
-			}
-		</script>
-	<br style="clear: both" />
+	</table>
 	
+			<a href="/test/Themmon">THÊM MÔN DẠY</a>
+		
+		<jsp:include page="footer.jsp" />
 	</div>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
  
 </html>

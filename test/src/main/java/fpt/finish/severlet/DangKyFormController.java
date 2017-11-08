@@ -41,32 +41,32 @@ public class DangKyFormController extends HttpServlet{
 		String magv;
 		
 			magv=loginedUser.getMa_user();
-			req.setAttribute("magv", magv);
+			session.setAttribute("magv", magv);
 			String ca=req.getParameter("ca");
 			String day=req.getParameter("day");
 			String maphong=req.getParameter("maphong");
-			req.setAttribute("ca", ca);
-			req.setAttribute("day", day);
-			req.setAttribute("maphong", maphong);
+			session.setAttribute("ca", ca);
+			session.setAttribute("day", day);
+			session.setAttribute("maphong", maphong);
 			 MonhocDao monhocDao=new MonhocDao();
 			LichdayDao lichdayDao=new LichdayDao();
 			ArrayList<LichdayModel> dsmh=lichdayDao.findAll(magv,conn);
 			int i=0;
 			for (LichdayModel lophoc : dsmh) {
-				req.setAttribute(String.valueOf(i),lophoc.getMalopdl());
+				session.setAttribute(String.valueOf(i),lophoc.getMalopdl());
 				i++;
 			}
-			req.setAttribute("solopdl", i);
+			session.setAttribute("solopdl", i);
 			int j=i+1;
 			for (LichdayModel monhoc : dsmh) {
-				req.setAttribute(String.valueOf(j), monhocDao.check_tenmon(monhoc.getMamon(),conn));
+				session.setAttribute(String.valueOf(j), monhocDao.check_tenmon(monhoc.getMamon(),conn));
 				j++;
 			}
-			req.setAttribute("somon", j);
+			session.setAttribute("somon", j);
 		
 		
 		
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/page/DangKyForm.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
 		dispatcher.forward(req, resp);
 		}
 	
@@ -74,6 +74,8 @@ public class DangKyFormController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 Connection conn = MyUtils.getStoredConnection(req);
 		DangkyDao dangkyDao=new DangkyDao();
+		LichdayDao lichdaydao=new LichdayDao();
+		
 		String ma_user=req.getParameter("ma_user_haui");
 		String mp=req.getParameter("maphong");
 		String ca=req.getParameter("ca");
@@ -81,7 +83,21 @@ public class DangKyFormController extends HttpServlet{
 		String mamon=req.getParameter("mamon");
 		String thoigian=req.getParameter("day");
 		int maphong=Integer.parseInt(mp);
-		Dang_ky_haui pmdk=new Dang_ky_haui(maphong, ma_user, ca, mamon,malopdl, Date.valueOf(thoigian));
-		dangkyDao.insert_Dangky(pmdk, conn);
+		if(lichdaydao.checkLD(malopdl, mamon,conn)==false){
+			req.setAttribute("errLD", "Lớp độc lập và môn không hợp lệ");
+			RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
+			dispatcher.forward(req, resp);
+		}else{
+			if(dangkyDao.checkAddDK(maphong, thoigian, ca,conn)==true){
+				req.setAttribute("errDK", "Phòng đã được đăng ký. Vui lòng chọn phòng khác!");
+				RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
+				dispatcher.forward(req, resp);
+			}else{
+				Dang_ky_haui pmdk=new Dang_ky_haui(maphong, ma_user, ca, mamon, malopdl, Date.valueOf(thoigian));
+				dangkyDao.insert_Dangky(pmdk,conn);
+				
+				resp.sendRedirect(req.getContextPath()+"/Abcd");
+			}
+	}
 	}
 }

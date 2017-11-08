@@ -1,44 +1,43 @@
+<%@page import="fpt.finish.until.MyUtils"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="fpt.finish.Dao.MonhocDao"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
 
+		
+<div class="container" >
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+<form action="<%=request.getContextPath()%>/Suamon" method="POST" role="form">
+<div class="col-md-4 col-md-offset-4 formcontainer" style="height: 430px;">
 
-<%@ page session="false"%>
-
-
-
-<div class="section">
-	<div class="form-group">
-	  <form method="POST" action="${pageContext.request.contextPath}/Suamon">
-		<table id="" class="table">
-			<thead>
-				<tr>
-					<th style="width: 100px;" colspan="1">Mã môn</th>
-					<th style="width: 100px;" colspan="1">Tên môn</th>
-				
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${pmbean != null }">
-					<tr class="odd">
-						<td class="center">${pmbean.mamon}</td>
-						<td class="center">${pmbean.tenmon}</td>
-				
-					</tr>
-				</c:if>
-			</tbody>
-				<tr>
-				<td>MLDL</td>
-				<td><input name="mamon" id="mamon" value="${pmbean.mamon}" /></td>
-			</tr>
-			<tr>
-				<td>TLOD</td>
-				<td><input name="tenmon" id="tenmon" value="${pmbean.tenmon}" /></td>
-			</tr>
-			
-		</table>
-		<input type="submit" value="Submit" />
-		  </form>
+	<div class="form-group" style="margin-top: 50px;">
+		<label for="">Mã môn</label>
+		<input type="text" readonly="readonly" class="form-control" name="mamon" value="${pmbean.mamon}">
+		<label for="">Tên môn</label>
+		<input type="text" class="form-control" name="tenmon" value="${pmbean.tenmon}">
 	</div>
-</div>
 
+	
 
+	<button type="submit" class="btn btn-primary">Xác nhận</button>
+	</div>
+	</form>
+	
+	<jsp:include page="footer.jsp" />
+	</div>
+	
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

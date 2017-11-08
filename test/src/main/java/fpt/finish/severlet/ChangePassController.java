@@ -36,11 +36,8 @@ public class ChangePassController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ma_user=request.getParameter("mauser");
+		
 		Connection conn=MyUtils.getStoredConnection(request);
-		UserDao dao=new UserDao();
-		HttpSession session = request.getSession();
-		session.setAttribute("username", dao.check_username(ma_user,conn));
 		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/ChangePass.jsp");
 		rd.forward(request, response);
 		
@@ -51,10 +48,12 @@ public class ChangePassController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("username");
+		HttpSession session=request.getSession();
+		session.setAttribute("username", username);
 		Connection conn=MyUtils.getStoredConnection(request);
-		Md5Lib md5Lib=new Md5Lib();
-		String oldPass=md5Lib.md5(request.getParameter("oldpassword"));
-		String newPass=md5Lib.md5(request.getParameter("newpassword"));
+		//Md5Lib md5Lib=new Md5Lib();
+		String oldPass=request.getParameter("oldpassword");
+		String newPass=request.getParameter("newpassword");
 		UserDao dao=new UserDao();
 		
 		if(dao.checkLogin(username, oldPass,conn)==false){
@@ -62,9 +61,9 @@ public class ChangePassController extends HttpServlet {
 			rd.forward(request, response);
 		}else{
 			dao.ChangPass(username, newPass,conn);
-			HttpSession session = request.getSession();
 			session.removeAttribute("username");
-			response.sendRedirect("qluser");
+			RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/DangNhap.jsp");
+			rd.forward(request, response);
 		}
 		
 	}

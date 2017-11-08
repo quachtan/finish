@@ -107,6 +107,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -236,6 +254,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -365,6 +401,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -494,6 +548,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -623,6 +695,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -752,6 +842,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
@@ -881,6 +989,24 @@ public class Thoikhoabieu extends HttpServlet {
 						String dateFormat1 = formatter.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
 						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();

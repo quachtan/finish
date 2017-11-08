@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		// (Người dùng không thể truy cập trực tiếp
 		// vào các trang JSP đặt trong thư mục WEB-INF).
 		RequestDispatcher dispatcher //
-				= this.getServletContext().getRequestDispatcher("/WEB-INF/loginView.jsp");
+				= this.getServletContext().getRequestDispatcher("/WEB-INF/DangNhap.jsp");
 
 		dispatcher.forward(request, response);
 

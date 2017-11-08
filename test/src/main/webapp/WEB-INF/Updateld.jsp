@@ -1,57 +1,49 @@
+<%@page import="fpt.finish.until.MyUtils"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="fpt.finish.Dao.MonhocDao"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
 
+		
+<div class="container" >
+<jsp:include page="Header.jsp" />
+		<jsp:include page="menu1.jsp" />
+<form action="<%=request.getContextPath()%>/Editlichday" method="POST" role="form">
+<div class="col-md-4 col-md-offset-4 formcontainer" style="height: 430px;">
 
-<%@ page session="false"%>
-
-
-
-<div class="section">
-	<div class="form-group">
-	  <form method="POST" action="${pageContext.request.contextPath}/Editlichday">
-		<table id="" class="table">
-			<thead>
-				<tr>
-					<th style="width: 100px;" colspan="1">Mã Phòng</th>
-					<th style="width: 100px;" colspan="1">Tên Phòng</th>
-					<th style="width: 200px;" colspan="1">Số Máy</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${pmbean != null }">
-					<tr class="odd">
-						<td class="center">${pmbean.id}</td>
-						<td class="center">${pmbean.ma_user}</td>
-						<td class="center ">${pmbean.malopdl}</td>
-						<td class="center ">${pmbean.mamon}</td>
-						<td class="center ">${pmbean.lichday}</td>
-					</tr>
-				</c:if>
-			</tbody>
-				<tr>
-				<td>ID</td>
-				<td><input name="id" id="id" value="${pmbean.id}" /></td>
-			</tr>
-			<tr>
-				<td>Mã User</td>
-				<td><input name="ma_user" id="ma_user" value="${pmbean.ma_user}" /></td>
-			</tr>
-			<tr>
-				<td>Mã lớp đl</td>
-				<td><input name="malopdl" id="malopdl" value="${pmbean.malopdl}" /></td>
-			</tr>
-			<tr>
-				<td>Mã môn</td>
-				<td><input name="mamon" id="mamon" value="${pmbean.mamon}" /></td>
-			</tr>
-			<tr>
-				<td>Lịch dạy</td>
-				<td><input name="lichday" id="lichday" value="${pmbean.lichday}" /></td>
-			</tr>
-		</table>
-		<input type="submit" value="Submit" />
-		  </form>
+	<div class="form-group" style="margin-top: 20px;">
+		<label for="">ID</label>
+		<input type="text" readonly="readonly" class="form-control" name="id" value="${pmbean.id}">
+		<label for="">Mã giảng viên:</label>
+		<input type="text" class="form-control" name="ma_user" value="${pmbean.ma_user}">
+		<label for="">Mã Lớp đl:</label>
+		<input type="text" class="form-control" name="malopdl" value="${pmbean.malopdl}">
+		<label for="">Mã môn</label>
+		<input type="text" class="form-control" name="mamon" value="${pmbean.mamon}">
+		<label for="">Lịch dạy</label>
+		<input type="text" class="form-control" name="lichday" value="${pmbean.lichday}">
 	</div>
-</div>
 
+	
 
+	<button type="submit" class="btn btn-primary">Xác nhận</button>
+	</div>
+	</form>
+	
+	<jsp:include page="footer.jsp" />
+	</div>
+	
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

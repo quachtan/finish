@@ -45,13 +45,13 @@ public class PhongmayDao {
 		pstm.executeUpdate();
 	}
 	public static void updatepm(Connection conn, Phong_May_haui pmhaui) throws SQLException {
-		String sql = "Update phongmay set maphong =?, tenphong=? where somay=? ";
+		String sql = "Update phongmay set somay =?, tenphong=? where maphong=? ";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-		pstm.setLong(1, pmhaui.getMaphong());
+		pstm.setLong(3, pmhaui.getMaphong());
 		pstm.setString(2, pmhaui.getTenphong());
-		pstm.setLong(3, pmhaui.getSomay());
+		pstm.setLong(1, pmhaui.getSomay());
 		pstm.executeUpdate();
 	}
 	public static Phong_May_haui phong_May_haui(Connection conn, long maphong) throws SQLException {

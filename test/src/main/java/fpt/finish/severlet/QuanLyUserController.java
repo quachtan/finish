@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fpt.finish.Dao.UserDao;
 import fpt.finish.bean.User_haui;
@@ -33,13 +34,24 @@ public class QuanLyUserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 HttpSession session = request.getSession();
+			User_haui userhaui = MyUtils.getLoginedUser(session);
+			if (userhaui == null) {
+				   RequestDispatcher dispatcher = request.getServletContext()
+			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			        dispatcher.forward(request, response);
+			}
+			else{
+			
+			if (userhaui.getMa_role()==1) {
 		UserDao userDao=new UserDao();
 		Connection conn=MyUtils.getStoredConnection(request);
 		ArrayList<User_haui> list=userDao.findAll(conn);
 		request.setAttribute("listUser", list);
 		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/QuanLyNguoiDung.jsp");
 		rd.forward(request, response);
-		
+			}
+			}
 	}
 
 	/**
