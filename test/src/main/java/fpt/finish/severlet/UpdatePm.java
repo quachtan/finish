@@ -49,7 +49,7 @@ public class UpdatePm extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("pmbean",timphongmodel);
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/UpdatePm.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/UpdatePm.jsp");
 		dispatcher.forward(request, response);
 	}
 

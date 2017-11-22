@@ -134,7 +134,7 @@ public class Huyphong extends HttpServlet {
 			request.setAttribute("errorString", errorString);
 			//
 			RequestDispatcher dispatcher = request.getServletContext()
-					.getRequestDispatcher("/WEB-INF/deleteProductErrorView.jsp");
+					.getRequestDispatcher("/deleteProductErrorView.jsp");
 			dispatcher.forward(request, response1);
 		}
 		// Nếu mọi thứ tốt đẹp.

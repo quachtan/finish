@@ -49,7 +49,7 @@ public class Sualop extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("pmbean",timphongmodel);
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/sualop.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/sualop.jsp");
 		dispatcher.forward(request, response);
 	}
 

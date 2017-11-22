@@ -1194,7 +1194,7 @@ public class ex extends HttpServlet {
 
 			// System.out.println(pmhaui);
 			 RequestDispatcher dispatcher = request.getServletContext()
-		                .getRequestDispatcher("/WEB-INF/thoikhoabieu.jsp");
+		                .getRequestDispatcher("/thoikhoabieu.jsp");
 		        dispatcher.forward(request, response);
 		}
 		

@@ -1222,7 +1222,7 @@ public class Nexttrangtkb extends HttpServlet {
 		}
 		}
 		 RequestDispatcher dispatcher = request.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/NextTrang.jsp");
+	                .getRequestDispatcher("/NextTrang.jsp");
 	        dispatcher.forward(request, response);
 		}
 	}

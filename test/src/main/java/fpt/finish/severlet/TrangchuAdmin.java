@@ -30,7 +30,7 @@ public class TrangchuAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-	    RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/TrangchuAdmin.jsp");
+	    RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/TrangchuAdmin.jsp");
         
 	       dispatcher.forward(request, response);
 	}

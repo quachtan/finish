@@ -49,7 +49,7 @@ public class Editlichday extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("pmbean",lichdayModel);
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/Updateld.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Updateld.jsp");
 		dispatcher.forward(request, response);
 	}
 

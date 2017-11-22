@@ -51,7 +51,7 @@ public class Quanlymon extends HttpServlet {
 			HttpSession session = req.getSession();
 			User_haui userhaui = MyUtils.getLoginedUser(session);
 			if (userhaui == null) {
-				RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+				RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/DangNhap.jsp");
 				dispatcher.forward(req, response);
 			} else {
 
@@ -68,17 +68,17 @@ public class Quanlymon extends HttpServlet {
 					req.setAttribute("listThayDoi", listthaydoi);
 
 					RequestDispatcher dispatcher = req.getServletContext()
-							.getRequestDispatcher("/WEB-INF/Quanlymon.jsp");
+							.getRequestDispatcher("/Quanlymon.jsp");
 					dispatcher.forward(req, response);
 				} else {
 					RequestDispatcher dispatcher = req.getServletContext()
-							.getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+							.getRequestDispatcher("/DangNhap.jsp");
 					dispatcher.forward(req, response);
 				}
 			}
 		} catch (SQLException e) {
 
-			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			RequestDispatcher dispatcher = req.getServletContext().getRequestDispatcher("/DangNhap.jsp");
 			dispatcher.forward(req, response);
 		}
 	}

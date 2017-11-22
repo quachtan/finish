@@ -21,7 +21,7 @@ public class abc extends HttpServlet {
        // Forward toi trang /WEB-INF/views/homeView.jsp
        // (Người dùng không bao giờ truy cập trực tiếp được vào các trang JSP
        // đặt trong WEB-INF)
-       RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/NewFile.jsp");
+       RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/NewFile.jsp");
         
        dispatcher.forward(request, response);
         

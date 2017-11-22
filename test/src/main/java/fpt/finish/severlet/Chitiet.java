@@ -92,7 +92,7 @@ public class Chitiet extends HttpServlet {
 		      request.setAttribute("thu7toi", thu7toi);
 	        // Forward sang /WEB-INF/views/productListView.jsp
 	        RequestDispatcher dispatcher = request.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/chitiet.jsp");
+	                .getRequestDispatcher("/chitiet.jsp");
 	        dispatcher.forward(request, response);
 	    }
 		

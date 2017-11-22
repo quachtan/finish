@@ -45,7 +45,7 @@ public class ProductListServlet extends HttpServlet {
          
         // Forward sang /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/WEB-INF/productListView.jsp");
+                .getRequestDispatcher("/productListView.jsp");
         dispatcher.forward(request, response);
     }
  

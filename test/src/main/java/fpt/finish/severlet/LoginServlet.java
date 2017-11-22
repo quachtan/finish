@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		// (Người dùng không thể truy cập trực tiếp
 		// vào các trang JSP đặt trong thư mục WEB-INF).
 		RequestDispatcher dispatcher //
-				= this.getServletContext().getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+				= this.getServletContext().getRequestDispatcher("/DangNhap.jsp");
 
 		dispatcher.forward(request, response);
 
@@ -87,7 +87,7 @@ public class LoginServlet extends HttpServlet {
 
 			// Forward (Chuyển tiếp) tới trang /WEB-INF/views/login.jsp
 			RequestDispatcher dispatcher //
-					= this.getServletContext().getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+					= this.getServletContext().getRequestDispatcher("/DangNhap.jsp");
 
 			dispatcher.forward(request, response);
 		}
@@ -107,12 +107,12 @@ public class LoginServlet extends HttpServlet {
 			}
 			if (user.getMa_role() == 1) {
 				RequestDispatcher dispatcher //
-						= this.getServletContext().getRequestDispatcher("/WEB-INF/TrangchuAdmin.jsp");
+						= this.getServletContext().getRequestDispatcher("/TrangchuAdmin.jsp");
 
 				dispatcher.forward(request, response);
 			} else {
 				RequestDispatcher dispatcher //
-						= this.getServletContext().getRequestDispatcher("/WEB-INF/TrangchuUser.jsp");
+						= this.getServletContext().getRequestDispatcher("/TrangchuUser.jsp");
 
 				dispatcher.forward(request, response);
 			}

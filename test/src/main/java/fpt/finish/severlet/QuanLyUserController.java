@@ -38,7 +38,7 @@ public class QuanLyUserController extends HttpServlet {
 			User_haui userhaui = MyUtils.getLoginedUser(session);
 			if (userhaui == null) {
 				   RequestDispatcher dispatcher = request.getServletContext()
-			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			                .getRequestDispatcher("/DangNhap.jsp");
 			        dispatcher.forward(request, response);
 			}
 			else{
@@ -48,7 +48,7 @@ public class QuanLyUserController extends HttpServlet {
 		Connection conn=MyUtils.getStoredConnection(request);
 		ArrayList<User_haui> list=userDao.findAll(conn);
 		request.setAttribute("listUser", list);
-		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/QuanLyNguoiDung.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/QuanLyNguoiDung.jsp");
 		rd.forward(request, response);
 			}
 			}

@@ -71,7 +71,7 @@ public class ThongKe extends HttpServlet {
 			User_haui userhaui = MyUtils.getLoginedUser(session);
 			if (userhaui == null) {
 				   RequestDispatcher dispatcher = request.getServletContext()
-			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			                .getRequestDispatcher("/DangNhap.jsp");
 			        dispatcher.forward(request, response);
 			}
 			else{
@@ -507,7 +507,7 @@ if(dspm!=null){
 request.setAttribute("soP1tuan", dangkyDao.thongketheophong(dayCN, dayT7, conn));
 request.setAttribute("soGV1tuan", dangkyDao.thongketheogv(dayCN, dayT7, conn));
 request.setAttribute("soL1tuan", dangkyDao.thongketheoluotdk(dayCN, dayT7, conn));
-RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/ThongKe.jsp");
+RequestDispatcher dispatcher=request.getRequestDispatcher("/ThongKe.jsp");
 dispatcher.forward(request, response);
 			}
 	}
@@ -561,7 +561,7 @@ dispatcher.forward(request, response);
         User_haui userhaui = MyUtils.getLoginedUser(session);
 		if (userhaui == null) {
 			   RequestDispatcher dispatcher = request.getServletContext()
-		                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+		                .getRequestDispatcher("/DangNhap.jsp");
 		        dispatcher.forward(request, response);
 		}
 		else{

@@ -50,7 +50,7 @@ public class Suamon extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("pmbean",timphongmodel);
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/suamon.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/suamon.jsp");
 		dispatcher.forward(request, response);
 	}
 

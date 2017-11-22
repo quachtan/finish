@@ -41,12 +41,12 @@ public class Abcd extends HttpServlet {
 				User_haui userhaui = MyUtils.getLoginedUser(session);
 				if (userhaui == null) {
 					   RequestDispatcher dispatcher = req.getServletContext()
-				                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+				                .getRequestDispatcher("/DangNhap.jsp");
 				        dispatcher.forward(req, resp);
 				}
 				else{
 		 RequestDispatcher dispatcher = req.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/NewFile2.jsp");
+	                .getRequestDispatcher("/NewFile2.jsp");
 	        dispatcher.forward(req, resp);
 				}
 	}

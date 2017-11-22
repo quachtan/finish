@@ -43,7 +43,7 @@ public class UpdateUserController extends HttpServlet {
 		request.setAttribute("email", dao.check_thongtin(ma_user,conn).getEmail());
 		request.setAttribute("sdt", dao.check_thongtin(ma_user,conn).getSdt());
 		
-		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/UpdateUser.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/UpdateUser.jsp");
 		rd.forward(request, response);
 	}
 

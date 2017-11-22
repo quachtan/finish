@@ -38,7 +38,7 @@ public class ChangePassController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Connection conn=MyUtils.getStoredConnection(request);
-		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/ChangePass.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/ChangePass.jsp");
 		rd.forward(request, response);
 		
 	}
@@ -57,12 +57,12 @@ public class ChangePassController extends HttpServlet {
 		UserDao dao=new UserDao();
 		
 		if(dao.checkLogin(username, oldPass,conn)==false){
-			RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/ChangePass.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/ChangePass.jsp");
 			rd.forward(request, response);
 		}else{
 			dao.ChangPass(username, newPass,conn);
 			session.removeAttribute("username");
-			RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/DangNhap.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/DangNhap.jsp");
 			rd.forward(request, response);
 		}
 		

@@ -35,7 +35,7 @@ public class AddNewUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/AddNewUser.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/AddNewUser.jsp");
 		rd.forward(request, response);
 	}
 
@@ -52,7 +52,7 @@ public class AddNewUser extends HttpServlet {
 		String password=request.getParameter("password");
 		if(userDao.checkNewUser(username,conn)==true){
 			request.setAttribute("err", "Tài khoản đã tồn tại");
-			RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/AddNewUser.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/AddNewUser.jsp");
 			rd.forward(request, response);
 		}else{
 		

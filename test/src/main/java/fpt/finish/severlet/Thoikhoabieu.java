@@ -1175,7 +1175,7 @@ public class Thoikhoabieu extends HttpServlet {
 
 			// System.out.println(pmhaui);
 			 RequestDispatcher dispatcher = request.getServletContext()
-		                .getRequestDispatcher("/WEB-INF/thoikhoabieu.jsp");
+		                .getRequestDispatcher("/thoikhoabieu.jsp");
 		        dispatcher.forward(request, response);
 
 		}
@@ -2724,7 +2724,7 @@ public class Thoikhoabieu extends HttpServlet {
 								}
 			}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/thoikhoabieu2.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/thoikhoabieu2.jsp");
 		  rd.forward(request, response);
 	}
 	}

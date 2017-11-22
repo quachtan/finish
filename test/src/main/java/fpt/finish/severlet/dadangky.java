@@ -39,7 +39,7 @@ public class dadangky extends HttpServlet {
 	    
 	        // Forward sang /WEB-INF/views/productListView.jsp
 	        RequestDispatcher dispatcher = request.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/phongmay.jsp");
+	                .getRequestDispatcher("/phongmay.jsp");
 	        dispatcher.forward(request, response);
 	    }
 		

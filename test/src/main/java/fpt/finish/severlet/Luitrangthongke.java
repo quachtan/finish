@@ -515,7 +515,7 @@ request.setAttribute("soP1tuan", dangkyDao.thongketheophong(dayCN, dayT7, conn))
 request.setAttribute("soGV1tuan", dangkyDao.thongketheogv(dayCN, dayT7, conn));
 request.setAttribute("soL1tuan", dangkyDao.thongketheoluotdk(dayCN, dayT7, conn));
 request.setAttribute("ngay", dayT2);
-RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/Luitrangthongke.jsp");
+RequestDispatcher dispatcher=request.getRequestDispatcher("/Luitrangthongke.jsp");
 dispatcher.forward(request, response);
 			}
 				else{
@@ -847,7 +847,7 @@ dispatcher.forward(request, response);
 							request.setAttribute("soGV1tuan", dangkyDao.thongketheogv(dayCN, dayT7, conn));
 							request.setAttribute("soL1tuan", dangkyDao.thongketheoluotdk(dayCN, dayT7, conn));
 							request.setAttribute("ngay", dayT2);
-							RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/Luitrangthongke.jsp");
+							RequestDispatcher dispatcher=request.getRequestDispatcher("/Luitrangthongke.jsp");
 							dispatcher.forward(request, response);
 						} catch (ParseException e) {
 							// TODO Auto-generated catch block

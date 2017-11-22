@@ -73,7 +73,7 @@ public class Nexttrangthongke extends HttpServlet {
 			User_haui userhaui = MyUtils.getLoginedUser(session);
 			if (userhaui == null) {
 				   RequestDispatcher dispatcher = request.getServletContext()
-			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			                .getRequestDispatcher("/DangNhap.jsp");
 			        dispatcher.forward(request, response);
 			}
 			else{
@@ -515,7 +515,7 @@ request.setAttribute("soP1tuan", dangkyDao.thongketheophong(dayCN, dayT7, conn))
 request.setAttribute("soGV1tuan", dangkyDao.thongketheogv(dayCN, dayT7, conn));
 request.setAttribute("soL1tuan", dangkyDao.thongketheoluotdk(dayCN, dayT7, conn));
 request.setAttribute("ngay", dayT2);
-RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/Nexttrangthongke.jsp");
+RequestDispatcher dispatcher=request.getRequestDispatcher("/Nexttrangthongke.jsp");
 dispatcher.forward(request, response);
 			}
 				else{
@@ -847,7 +847,7 @@ dispatcher.forward(request, response);
 							request.setAttribute("soGV1tuan", dangkyDao.thongketheogv(dayCN, dayT7, conn));
 							request.setAttribute("soL1tuan", dangkyDao.thongketheoluotdk(dayCN, dayT7, conn));
 							request.setAttribute("ngay", dayT2);
-							RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/Nexttrangthongke.jsp");
+							RequestDispatcher dispatcher=request.getRequestDispatcher("/Nexttrangthongke.jsp");
 							dispatcher.forward(request, response);
 						} catch (ParseException e) {
 							// TODO Auto-generated catch block
@@ -906,7 +906,7 @@ dispatcher.forward(request, response);
 	        row.setHeight((short) 800);
 			if (userhaui == null) {
 				   RequestDispatcher dispatcher = request.getServletContext()
-			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			                .getRequestDispatcher("/DangNhap.jsp");
 			        dispatcher.forward(request, response);
 			}
 			else{

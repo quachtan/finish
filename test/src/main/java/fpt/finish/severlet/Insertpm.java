@@ -35,7 +35,7 @@ public class Insertpm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/Insertpm.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Insertpm.jsp");
 		dispatcher.forward(request, response);
 	}
 

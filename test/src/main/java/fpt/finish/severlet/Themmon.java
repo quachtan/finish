@@ -36,7 +36,7 @@ public class Themmon extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/themmon.jsp");
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/themmon.jsp");
 		dispatcher.forward(request, response);
 	}
 

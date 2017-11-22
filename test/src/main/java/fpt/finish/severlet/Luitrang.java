@@ -1223,7 +1223,7 @@ public class Luitrang extends HttpServlet {
 		}
 		}
 		 RequestDispatcher dispatcher = request.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/LuiTrang.jsp");
+	                .getRequestDispatcher("/LuiTrang.jsp");
 	        dispatcher.forward(request, response);
 		}
 	}

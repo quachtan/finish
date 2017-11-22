@@ -45,7 +45,7 @@ public class DangKyPmController extends HttpServlet{
 					User_haui userhaui = MyUtils.getLoginedUser(session);
 					if (userhaui == null) {
 						   RequestDispatcher dispatcher = req.getServletContext()
-					                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+					                .getRequestDispatcher("/DangNhap.jsp");
 					        dispatcher.forward(req, resp);
 					}
 					else{
@@ -499,7 +499,7 @@ public class DangKyPmController extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyPhong.jsp");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/DangKyPhong.jsp");
 		dispatcher.forward(req, resp);
 					}
 		

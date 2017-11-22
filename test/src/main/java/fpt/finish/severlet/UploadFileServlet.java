@@ -27,7 +27,7 @@ public class UploadFileServlet extends HttpServlet {
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
  
-       RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/uploadFile.jsp");
+       RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/uploadFile.jsp");
  
        dispatcher.forward(request, response);
    }

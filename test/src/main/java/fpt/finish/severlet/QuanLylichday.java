@@ -53,7 +53,7 @@ public class QuanLylichday extends HttpServlet {
 				User_haui userhaui = MyUtils.getLoginedUser(session);
 				if (userhaui == null) {
 					   RequestDispatcher dispatcher = req.getServletContext()
-				                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+				                .getRequestDispatcher("/DangNhap.jsp");
 				        dispatcher.forward(req, response);
 				}
 				else{
@@ -76,19 +76,19 @@ public class QuanLylichday extends HttpServlet {
 				
 			
 			   RequestDispatcher dispatcher = req.getServletContext()
-		                .getRequestDispatcher("/WEB-INF/Quanlylichday.jsp");
+		                .getRequestDispatcher("/Quanlylichday.jsp");
 		        dispatcher.forward(req, response);
 				}
 				else{
 					RequestDispatcher dispatcher = req.getServletContext()
-			                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+			                .getRequestDispatcher("/DangNhap.jsp");
 			        dispatcher.forward(req, response);
 				}
 				}
 		} catch (SQLException e) {
 				
 			RequestDispatcher dispatcher = req.getServletContext()
-	                .getRequestDispatcher("/WEB-INF/DangNhap.jsp");
+	                .getRequestDispatcher("/DangNhap.jsp");
 	        dispatcher.forward(req, response);
 		}
 	}
