@@ -16,6 +16,8 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<%-- <li class="dropdown"><a href="<c:url value="/" />search">tim phong</a> --%>
+				<li><a href="<c:url value="/" />thongke">Thống kê đăng ký
+						</a></li>
 				<li><a href="<c:url value="/" />qluser">Quản lý người dùng
 						</a></li>
 				<li><a href="<c:url value="/" />QuanLylichday">Quản lý lịch dạy

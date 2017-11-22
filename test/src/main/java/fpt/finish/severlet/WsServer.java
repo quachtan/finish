@@ -1,4 +1,4 @@
-package fpt.finish.severlet;
+/*package fpt.finish.severlet;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -38,12 +38,12 @@ public class WsServer {
 	
 	@OnMessage
 	public void onMessage(String message,Session userSession) throws IOException{
-		/*String username=(String) userSession.getUserProperties().get("username");*/
-		/*if(username == null){
+		String username=(String) userSession.getUserProperties().get("username");
+		if(username == null){
 			userSession.getUserProperties().put("username", message);
 			userSession.getBasicRemote().sendText(buildJsonData("System","you are now connected as "+message));
 		}
-		else{*/
+		else{
 			Iterator<Session> iterator=chat.iterator();
 			while (iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(message));
 		}
@@ -63,3 +63,4 @@ public class WsServer {
 		return stringWriter.toString();
 	}
 }
+*/

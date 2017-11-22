@@ -83,11 +83,17 @@ public class DangKyFormController extends HttpServlet{
 		String mamon=req.getParameter("mamon");
 		String thoigian=req.getParameter("day");
 		int maphong=Integer.parseInt(mp);
+		String c_ma_user=dangkyDao.check_trungDK(thoigian, ca, conn);
 		if(lichdaydao.checkLD(malopdl, mamon,conn)==false){
 			req.setAttribute("errLD", "Lớp độc lập và môn không hợp lệ");
 			RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
 			dispatcher.forward(req, resp);
 		}else{
+			if(ma_user.trim().compareTo(c_ma_user)==0){
+				req.setAttribute("errTM", "Bạn đã có lịch đăng ký trong buổi này!");
+				RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
+				dispatcher.forward(req, resp);
+			}else{
 			if(dangkyDao.checkAddDK(maphong, thoigian, ca,conn)==true){
 				req.setAttribute("errDK", "Phòng đã được đăng ký. Vui lòng chọn phòng khác!");
 				RequestDispatcher dispatcher=req.getRequestDispatcher("/WEB-INF/DangKyForm.jsp");
@@ -97,7 +103,7 @@ public class DangKyFormController extends HttpServlet{
 				dangkyDao.insert_Dangky(pmdk,conn);
 				
 				resp.sendRedirect(req.getContextPath()+"/Abcd");
-			}
+			}}
 	}
 	}
 }

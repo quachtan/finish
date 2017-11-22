@@ -313,5 +313,95 @@ public class DangkyDao {
 		
 		return false;
 		}
+	public int thongketheogv(String day1, String day2,Connection conn)
+	{
+		
+		String sql="SELECT * FROM `dangky` where thoigian>=? and thoigian<=? GROUP BY ma_user_haui";
+		int count=0;
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, day1);
+			preparedStatement.setString(2, day2);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+				{
+					count++;
+					
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;}
+
+	public int thongketheophong(String day1, String day2,Connection conn)
+	{
+		
+		String sql="SELECT * FROM `dangky` where thoigian>=? and thoigian<=? GROUP BY maphong";
+		int count=0;
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, day1);
+			preparedStatement.setString(2, day2);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+				{
+					count++;
+					
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;}
+
+	public int thongketheoluotdk(String day1, String day2,Connection conn)
+	{
+		
+		String sql="SELECT * FROM `dangky` where thoigian>=? and thoigian<=?";
+		int count=0;
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, day1);
+			preparedStatement.setString(2, day2);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+				{
+					count++;
+					
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;}
+
+	public String check_trungDK(String thoigian,String ca,Connection conn)
+	{
+		
+		String sql="SELECT ma_user_haui FROM `dangky` WHERE thoigian=? and ca=?";
+		String ma_user="";
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			preparedStatement.setString(1, thoigian);
+			preparedStatement.setString(2, ca);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next())
+				{
+					ma_user=resultSet.getString("ma_user_haui");
+					
+				}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ma_user;
+		}
+
 	
 }

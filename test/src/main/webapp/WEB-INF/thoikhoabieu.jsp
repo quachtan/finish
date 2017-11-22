@@ -14,11 +14,12 @@
 	<div class="container">
 		<jsp:include page="Header.jsp" />
 		<jsp:include page="menu.jsp" />
+		 <form action="ex" method="post">
 		<table class="table table-hover" border="1">
 
 			<tr style="background-color: yellow;">
 				<th>Ca</th>
-				<th>Chủ nhật
+				<th>Chủ nhật</th>
 				<th>thứ hai</th>
 				<th>thứ ba</th>
 				<th>thứ tư</th>
@@ -222,9 +223,12 @@
 						<a href="huyphong?id=${thu7toi.id}">Huỷ</a>
 					</td></c:if>
 			</tr>
-		</table>
 		
+		</table>
+		 <input type="submit" value="Export To Excel"/>
+			</form>
 		<a href="next?ngay=${ngay}" style="float: right;">Tiến 1 tuần</a>
+		<!--  <input type="submit" value="Export To Excel"/>  -->
 		<a href="lui?ngay=${ngay}" style="float: left: ;">Lùi 1 tuần</a>
 		<jsp:include page="footer.jsp" />
 	</div>

@@ -92,144 +92,151 @@ public class Thoikhoabieu extends HttpServlet {
 					String dateFormat = formatter.format(date);
 					if(dateFormat.equals("Mon")){
 						String thu2=dateFormat;
+						String thu2n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
 						String thu3=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu4n=formatter1.format(c1.getTime());
 						String thu4=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu5n=formatter1.format(c1.getTime());
 						String thu5=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
 						String thu6=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
 						String thu7=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -240,143 +247,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Tue")){
 						c1.roll(Calendar.DAY_OF_YEAR,-1);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						String thu3=dateFormat;
+						String thu3n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR,2);
 						String thu4=formatter.format(c1.getTime());
+						String thu4n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
 						String thu5=formatter.format(c1.getTime());
+						String thu5n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String thu6=formatter.format(c1.getTime());
+						String thu6n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String thu7=formatter.format(c1.getTime());
+						String thu7n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -387,143 +401,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Wed")){
 						c1.roll(Calendar.DAY_OF_YEAR,-2);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
 						String thu3=formatter.format(c1.getTime());
 						String thu4=dateFormat;
+						String thu4n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR, 2);
+						String thu5n=formatter1.format(c1.getTime());
 						String thu5=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
 						String thu6=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
 						String thu7=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -534,143 +555,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Thu")){
 						c1.roll(Calendar.DAY_OF_YEAR,-3);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String thu3=formatter.format(c1.getTime());
+						String thu3n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
 						String thu4=formatter.format(c1.getTime());
+						String thu4n=formatter1.format(c1.getTime());
 						String thu5=dateFormat;
+						String thu5n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String thu6n=formatter1.format(c1.getTime());
 						String thu6=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
 						String thu7=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -681,143 +709,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Fri")){
 						c1.roll(Calendar.DAY_OF_YEAR,-4);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String thu3=formatter.format(c1.getTime());
+						String thu3n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
 						String thu4=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
 						String thu5=formatter.format(c1.getTime());
 						String thu6=dateFormat;
+						String thu6n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String thu7n=formatter1.format(c1.getTime());
 						String thu7=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -828,143 +863,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Sat")){
 						c1.roll(Calendar.DAY_OF_YEAR,-5);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
 						String thu3=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
 						String thu4=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
 						String thu5=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
 						String thu6=formatter.format(c1.getTime());
 						String thu7=dateFormat;
+						String thu7n=formatter1.format(date);
 						c1.roll(Calendar.DAY_OF_YEAR,2);
 						String cn=formatter.format(c1.getTime());
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -975,143 +1017,150 @@ public class Thoikhoabieu extends HttpServlet {
 					if(dateFormat.equals("Sun")){
 						c1.roll(Calendar.DAY_OF_YEAR,-6);
 						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
 						String thu3=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
 						String thu4=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
 						String thu5=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
 						String thu6=formatter.format(c1.getTime());
 						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
 						String thu7=formatter.format(c1.getTime());
 						String cn=dateFormat;
-						String dateFormat1 = formatter.format(user.get(i).getThoigian());
+						String cnn=formatter1.format(date);
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
 						String formatter2 = formatter.format(date);
 						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
 							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnsang", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
 							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cnchieu", user.get(i));
 
 						}
-						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cn)) {
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
 							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("cntoi", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
 							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							// HttpSession sessions= request.getSession();
 							request.setAttribute("thu2sang", user.get(i));
 
 						}
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
 							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2chieu", user.get(i));
 
 						}
 
-						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2)) {
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
 							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu2toi", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
 							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3sang", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
 							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3chieu", user.get(i));
 
 						}
-						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3)) {
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
 							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu3toi", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
 							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4sang", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
 							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4chieu", user.get(i));
 
 						}
-						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4)) {
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
 							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu4toi", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
 							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5sang", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
 							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5chieu", user.get(i));
 
 						}
-						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5)) {
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
 							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu5toi", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
 							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6sang", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
 							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6chieu", user.get(i));
 
 						}
-						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6)) {
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
 							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu6toi", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
 							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7sang", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
 							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7chieu", user.get(i));
 
 						}
-						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7)) {
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
 							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
 									+ user.get(i).getTenphong();
 							request.setAttribute("thu7toi", user.get(i));
@@ -1549,7 +1598,1135 @@ public class Thoikhoabieu extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		Connection conn = MyUtils.getStoredConnection(request);
+
+		List<Phong_May_haui> user = null;
+		// Kiểm tra người dùng đã đăng nhập (login) chưa.
+		User_haui loginedUser = MyUtils.getLoginedUser(session);
+
+		// Nếu chưa đăng nhập (login).
+		if (loginedUser == null) {
+			// Redirect (Chuyển hướng) tới trang login.
+			response.sendRedirect(request.getContextPath() + "/login");
+			return;
+		} else {
+			 try {
+				 user=  DBUtils.queryDangky(conn);
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		         
+		        } 
+			/*
+			 * String ma_user_haui = userhaui.getMa_user(); User_Role_haui user_role
+			 * = user_roledao.findByMauserhaui(ma_user_haui); if
+			 * (user_role.getRole().equals("admin")) {
+			 */
+			for (int i = 0; i < user.size(); i++) {
+				if (loginedUser.getMa_user().equals(user.get(i).getMa_user_haui())) {
+					SimpleDateFormat formatter = new SimpleDateFormat("EE");
+					SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MMM-yyyy");
+					Date date = new Date();
+					Calendar c1 = Calendar.getInstance();
+					Calendar c2 = Calendar.getInstance();
+					Calendar c3 = Calendar.getInstance();
+					Calendar c4 = Calendar.getInstance();
+					Calendar c5 = Calendar.getInstance();
+					Calendar c6 = Calendar.getInstance();
+					Calendar c7 = Calendar.getInstance();
+					c1.setTime(date);
+					c2.setTime(date);
+					c3.setTime(date);
+
+					System.out.println("Ngày ban d?u : " + formatter.format(c1.getTime()));
+
+					String dateFormat = formatter.format(date);
+					if(dateFormat.equals("Mon")){
+						String thu2=dateFormat;
+						String thu2n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
+						String thu3=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu4n=formatter1.format(c1.getTime());
+						String thu4=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu5n=formatter1.format(c1.getTime());
+						String thu5=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
+						String thu6=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
+						String thu7=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
+						String cn=formatter.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Tue")){
+						c1.roll(Calendar.DAY_OF_YEAR,-1);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						String thu3=dateFormat;
+						String thu3n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String thu4=formatter.format(c1.getTime());
+						String thu4n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu5=formatter.format(c1.getTime());
+						String thu5n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6=formatter.format(c1.getTime());
+						String thu6n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7=formatter.format(c1.getTime());
+						String thu7n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cn=formatter.format(c1.getTime());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Wed")){
+						c1.roll(Calendar.DAY_OF_YEAR,-2);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
+						String thu3=formatter.format(c1.getTime());
+						String thu4=dateFormat;
+						String thu4n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR, 2);
+						String thu5n=formatter1.format(c1.getTime());
+						String thu5=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
+						String thu6=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
+						String thu7=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
+						String cn=formatter.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Thu")){
+						c1.roll(Calendar.DAY_OF_YEAR,-3);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3=formatter.format(c1.getTime());
+						String thu3n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4=formatter.format(c1.getTime());
+						String thu4n=formatter1.format(c1.getTime());
+						String thu5=dateFormat;
+						String thu5n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String thu6n=formatter1.format(c1.getTime());
+						String thu6=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
+						String thu7=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cnn=formatter1.format(c1.getTime());
+						String cn=formatter.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Fri")){
+						c1.roll(Calendar.DAY_OF_YEAR,-4);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3=formatter.format(c1.getTime());
+						String thu3n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
+						String thu4=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
+						String thu5=formatter.format(c1.getTime());
+						String thu6=dateFormat;
+						String thu6n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String thu7n=formatter1.format(c1.getTime());
+						String thu7=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String cn=formatter.format(c1.getTime());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Sat")){
+						c1.roll(Calendar.DAY_OF_YEAR,-5);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
+						String thu3=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
+						String thu4=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
+						String thu5=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
+						String thu6=formatter.format(c1.getTime());
+						String thu7=dateFormat;
+						String thu7n=formatter1.format(date);
+						c1.roll(Calendar.DAY_OF_YEAR,2);
+						String cn=formatter.format(c1.getTime());
+						String cnn=formatter1.format(c1.getTime());
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					if(dateFormat.equals("Sun")){
+						c1.roll(Calendar.DAY_OF_YEAR,-6);
+						String thu2=formatter.format(c1.getTime());
+						String thu2n=formatter1.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu3n=formatter1.format(c1.getTime());
+						String thu3=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR, 1);
+						String thu4n=formatter1.format(c1.getTime());
+						String thu4=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu5n=formatter1.format(c1.getTime());
+						String thu5=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu6n=formatter1.format(c1.getTime());
+						String thu6=formatter.format(c1.getTime());
+						c1.roll(Calendar.DAY_OF_YEAR,1);
+						String thu7n=formatter1.format(c1.getTime());
+						String thu7=formatter.format(c1.getTime());
+						String cn=dateFormat;
+						String cnn=formatter1.format(date);
+						String dateFormat1 = formatter1.format(user.get(i).getThoigian());
+						String formatter2 = formatter.format(date);
+						System.out.println("Ngày dã du?c d?nh d?ng : " + dateFormat);
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(cnn)) {
+							String cnsang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnsang", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(cnn)) {
+							String cnchieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cnchieu", user.get(i));
+
+						}
+						if (cn.equals("Sun") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(cnn)) {
+							String cntoi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("cntoi", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu2n)) {
+							String thu2sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							// HttpSession sessions= request.getSession();
+							request.setAttribute("thu2sang", user.get(i));
+
+						}
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu2n)) {
+							String thu2chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2chieu", user.get(i));
+
+						}
+
+						if (thu2.equals("Mon") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu2n)) {
+							String thu2toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu2toi", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu3n)) {
+							String thu3sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3sang", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu3n)) {
+							String thu3chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3chieu", user.get(i));
+
+						}
+						if (thu3.equals("Tue") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu3n)) {
+							String thu3toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu3toi", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu4n)) {
+							String thu4sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4sang", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu4n)) {
+							String thu4chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4chieu", user.get(i));
+
+						}
+						if (thu4.equals("Wed") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu4n)) {
+							String thu4toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu4toi", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu5n)) {
+							String thu5sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5sang", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu5n)) {
+							String thu5chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5chieu", user.get(i));
+
+						}
+						if (thu5.equals("Thu") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu5n)) {
+							String thu5toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu5toi", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu6n)) {
+							String thu6sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6sang", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu6n)) {
+							String thu6chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6chieu", user.get(i));
+
+						}
+						if (thu6.equals("Fri") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu6n)) {
+							String thu6toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu6toi", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Sang") && dateFormat1.equals(thu7n)) {
+							String thu7sang = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7sang", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Chieu") && dateFormat1.equals(thu7n)) {
+							String thu7chieu = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7chieu", user.get(i));
+
+						}
+						if (thu7.equals("Sat") && user.get(i).getCa().equals("Toi") && dateFormat1.equals(thu7n)) {
+							String thu7toi = "mamon:" + user.get(i).getMamon() + "<br>" + "Ten phong:"
+									+ user.get(i).getTenphong();
+							request.setAttribute("thu7toi", user.get(i));
+
+						}
+
+					}
+					/*c1.roll(Calendar.DATE, -2);
+					System.out.println("Ngày ban d?u : " + formatter.format(c1.getTime()));*/
+								}
+			}
+
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/thoikhoabieu2.jsp");
+		  rd.forward(request, response);
+	}
 	}
 
 }

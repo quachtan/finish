@@ -19,11 +19,15 @@
 		<%
 			String errLD = "";
 			String errDK = "";
+			String errTM="";
 			if (request.getAttribute("errLD") != null) {
 				errLD = (String) request.getAttribute("errLD");
 			}
 			if (request.getAttribute("errDK") != null) {
 				errDK = (String) request.getAttribute("errDK");
+			}
+			if (request.getAttribute("errTM") != null) {
+				errTM = (String) request.getAttribute("errTM");
 			}
 		%>
 
@@ -67,6 +71,7 @@
 						value="<%=session.getAttribute("day")%>">
 					<p class='err'><%=errLD%></p>
 					<p class='err'><%=errDK%></p>
+					<p class='err'><%=errTM%></p>
 
 				</div>
 
